@@ -105,9 +105,9 @@ app = FastAPI(
 
 )
 
-# ------------------------------------------------------------------
+# -----------------------------------------------------------------------------------
 # CORS — allow the frontend (running on a different port/domain) to call this API
-# ------------------------------------------------------------------
+# -----------------------------------------------------------------------------------
 app.add_middleware(
     
     CORSMiddleware,
@@ -122,7 +122,9 @@ app.add_middleware(
         
         "http://127.0.0.1:5173",
         
-        "https://your-vercel-app.vercel.app"  # replace with actual deployment URL
+        "https://techmart-backend-jl0y.onrender.com",
+        
+        "https://multi-agent-ai-customer-support-ass-eight.vercel.app"
         
     ],
     
@@ -140,10 +142,10 @@ app.add_middleware(
 app.include_router(router, prefix="/api")
 
 
-# ------------------------------------------------------------------
+# ---------------------------------------------------------------------
 # Optionally serve the built frontend as static files, if present
 # (useful for a single-server deployment instead of separate hosting)
-# ------------------------------------------------------------------
+# ---------------------------------------------------------------------
 frontend_dist = Path(__file__).parent.parent / "frontend" / "out"
 
 if frontend_dist.exists():
