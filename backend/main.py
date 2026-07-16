@@ -54,34 +54,29 @@ async def lifespan(app: FastAPI):
 
     retriever = get_retriever()
 
-    # force_rebuild=False means: reuse the existing index on disk if one is found
-    result = retriever.build_index(force_rebuild = False)
+    # Only reload saved index from disk — don't build/embed on startup
+    # This avoids loading the 90MB embedding model at startup (OOM on free tier)
+    if retriever._index_path.exists() and retriever._chunks_path.exists():
+        
+        try:
+            
+            retriever._load_from_disk()
+            
+            retriever._ready = True
+            
+            logger.info(f"RAG index reloaded from disk ({retriever.chunk_count} chunks).")
+            
+        except Exception as e:
+            
+            logger.warning(f"Could not reload index: {e}. Will build on first request.")
+            
+    else:
+        
+        logger.warning("No saved FAISS index found. Will build on first request.")
 
-    logger.info(f"RAG index: {result}")
+    logger.info("Embedding model will load on first request (memory optimization).")
 
-    # Pre-load embedding model AND warm it up with a test query
-    from .rag.embeddings import get_embedding_manager
-
-    from .rag.retriever import get_retriever
-
-    embedder = get_embedding_manager(settings.EMBEDDING_MODEL)
-
-    # Warm up with a dummy encode to fully initialize the model.
-    # The first real embedding call is often slow (model loads weights
-    # into memory), so we absorb that cost here instead of on a user's request.
-    try:
-
-        embedder.embed_query("warm up query")
-
-        logger.info("Embedding model pre-loaded and warmed up successfully.")
-
-    except Exception as e:
-
-        # Don't crash startup just because the warm-up failed —
-        # the app can still work, just slower on the first real request
-        logger.warning(f"Embedding warm-up failed: {e}")
-
-    yield  # --- server is running here; requests get handled between yield and shutdown ---
+    yield
 
 
 # ------------------------------------------------------------------
