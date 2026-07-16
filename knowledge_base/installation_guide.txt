@@ -1,0 +1,147 @@
+TECHMART ELECTRONICS — INSTALLATION GUIDE & TROUBLESHOOTING
+===========================================================
+
+SECTION A: TECHMART ULTRABOOK PRO 15 / ULTRABOOK AIR 13
+---------------------------------------------------------
+
+A1. INITIAL SETUP
+- Unbox the laptop and remove all protective films and packing materials.
+- Connect the included USB-C charger. Charge to at least 20% before first use.
+- Press and hold the Power button for 2 seconds to turn on.
+- Follow the Windows 11 setup wizard (language, Wi-Fi, Microsoft account sign-in or local account).
+- Register your product at www.techmartelectronics.com/register within 30 days to activate warranty.
+
+A2. DRIVER AND SOFTWARE INSTALLATION
+- TechMart recommends running Windows Update immediately after setup.
+- Go to Settings → Windows Update → Check for Updates.
+- Install TechMart PC Toolkit from www.techmartelectronics.com/downloads for:
+  * Firmware updates
+  * Battery optimization settings
+  * TechMart Control Center (fan profiles, keyboard backlight, display calibration)
+- Restart after all updates complete.
+
+A3. COMMON LAPTOP ISSUES & FIXES
+- Laptop won't turn on: Ensure charger is fully plugged in. Hold Power button for 10 seconds (force shutdown), then press Power again. If still unresponsive, contact support.
+- Black screen on startup: Press and hold Power for 10 seconds to force restart. If recurring, boot into Safe Mode (hold Shift during restart > Troubleshoot > Startup Settings).
+- Overheating / loud fan: Ensure vents (bottom and back) are not blocked. Use on flat, hard surfaces, not bed/sofa. Run TechMart Control Center and select "Performance" or "Balanced" mode.
+- Wi-Fi not connecting: Restart router. Forget Wi-Fi network and reconnect. Update Wi-Fi drivers via Device Manager → Network Adapters.
+- Keyboard backlight not working: Press Fn + F5 to toggle backlight. In TechMart Control Center, customize brightness levels.
+- Battery draining fast: Set Power Mode to "Balanced." Lower screen brightness. Disable background apps in Settings → Apps → Startup.
+- Low disk space: Open Storage Settings to identify large files. Use TechMart PC Toolkit > "Disk Cleaner." Consider external SSD (USB-C, compatible with all TechMart laptops).
+
+SECTION B: TECHMART SMARTPHONE X14 / X14 PRO
+-----------------------------------------------
+
+B1. SIM & INITIAL SETUP
+- Insert nano SIM into the SIM tray (side port) using the included ejector pin.
+- Power on by holding the Power button (right side) for 3 seconds.
+- Follow Android setup: select language, insert SIM, connect to Wi-Fi, sign in with Google account.
+- Restore from backup (Google account or old device backup) or set up as new.
+- Register device at www.techmartelectronics.com/register.
+
+B2. FACE UNLOCK & FINGERPRINT SETUP
+- Go to Settings → Security → Biometrics.
+- Add fingerprint: place finger on the in-display fingerprint sensor (center bottom of screen).
+- Add face data: face the camera in good lighting.
+- Recommended: set up both for convenience and fallback.
+
+B3. TRANSFERRING DATA FROM OLD PHONE
+- Android to TechMart: Use "Switch to Android" app on old phone or Google Backup (Settings → Google → Backup).
+- iPhone to TechMart: Use the "Move to Android" app (available on App Store) or export contacts via iCloud CSV.
+
+B4. COMMON SMARTPHONE ISSUES & FIXES
+- Phone won't turn on: Hold Power + Volume Down for 10 seconds. If unresponsive, charge for 30 minutes then retry.
+- Touchscreen unresponsive: Clean screen. Remove screen protector if third-party (may interfere). Force restart (Power + Volume Down, 10 seconds).
+- Apps crashing: Go to Settings → Apps → [app name] → Force Stop, then Clear Cache. Update app. If still crashing, reinstall.
+- Mobile data not working: Check Settings → Network & Internet → Mobile Network → ensure Mobile Data is On and APN settings match your carrier. Toggle Airplane Mode on/off.
+- Overheating: Remove case, stop background-intensive apps, avoid direct sunlight. If persistent, contact support.
+- Battery draining: Settings → Battery → Battery Usage to identify draining apps. Reduce screen brightness. Disable 5G if not needed (saves battery).
+- Camera not focusing: Clean lens with soft cloth. Switch between cameras (front/rear). Restart Camera app. If still blurry, contact warranty support.
+- Forgot PIN/Pattern: After 5 failed attempts, use "Forgot PIN" option and sign in with Google account. If Google account is also inaccessible, contact support for account recovery.
+
+B5. BACKUP & DATA SAFETY
+- Google backup: Settings → Google → Backup → Back Up Now.
+- Photos: Enable Google Photos backup (automatic when connected to Wi-Fi).
+- Contacts: Sync to Google account (Settings → Accounts → Google → Sync Contacts).
+
+SECTION C: TECHMART TABPRO 11
+--------------------------------
+
+C1. INITIAL SETUP
+- Power on by holding the top button.
+- Follow Android tablet setup. Connect to Wi-Fi and Google account.
+- Attach TechMart Smart Keyboard Folio (sold separately) via Smart Connector on the back bottom edge.
+- Pair TechMart Stylus Pro 2: attach magnetically to the right edge to charge and pair.
+
+C2. KEYBOARD FOLIO SETUP
+- Simply connect via Smart Connector; no Bluetooth pairing needed.
+- Adjust backlight: Fn + F5.
+- If trackpad is not responding, go to Settings → Connected Devices → Keyboard and toggle off/on.
+
+C3. STYLUS PRO 2 SETUP
+- First use: attach to tablet magnetic edge for 15 minutes to charge.
+- LED indicator: White = paired; Amber = charging; Red = low battery.
+- Customize stylus shortcuts: Settings → Connected Devices → Stylus Pro 2 → Button actions.
+
+SECTION D: TECHMART SMARTWATCH SERIES 3
+-----------------------------------------
+
+D1. SETUP & PAIRING
+- Charge watch using the included magnetic charging cable. Charge for 1 hour before first use.
+- Power on: press and hold the Crown button (right side) for 3 seconds.
+- Download "TechMart Watch" app on your smartphone (Android 10+ or iOS 16+).
+- Open app → Add device → Select SmartWatch Series 3. Enable Bluetooth on phone.
+- Follow pairing instructions in the app.
+
+D2. HEALTH DATA SETUP
+- Grant TechMart Watch app permission to Health/Activity data during setup.
+- Set up emergency contacts for SOS/fall detection in app settings.
+- For ECG: Settings in Watch app → Health → ECG → agree to terms.
+- For SpO2: Settings → Health → SpO2 → enable background monitoring.
+
+D3. COMMON WATCH ISSUES
+- Watch not pairing: Ensure Bluetooth is enabled. Force close TechMart Watch app and retry. Restart watch (hold Crown 10 seconds).
+- Watch face not displaying: Enable Always-On Display in watch Settings → Display.
+- Inaccurate step count: Wear watch snugly (one finger gap from wrist). Enable Wrist Detection in app.
+- Notifications not arriving: In TechMart Watch app → Notifications → ensure permissions granted for each desired app.
+
+SECTION E: TECHMART TRUE WIRELESS EARBUDS PRO
+-----------------------------------------------
+
+E1. FIRST-TIME PAIRING
+- Remove earbuds from case (this begins pairing mode automatically).
+- On your phone, go to Bluetooth settings → pair "TechMart Earbuds Pro."
+- Subsequent connections: earbuds auto-connect to the last paired device when removed from case.
+
+E2. MULTIPOINT (TWO DEVICES)
+- To connect to a second device: in Bluetooth settings of the second device, select "TechMart Earbuds Pro."
+- Earbuds will auto-switch between the two most recently connected devices.
+
+E3. TOUCH CONTROLS
+- Left earbud: single tap = play/pause; double tap = volume down; triple tap = previous track; press and hold = toggle ANC/Transparency
+- Right earbud: single tap = play/pause; double tap = volume up; triple tap = next track; press and hold = voice assistant
+- Customize controls in TechMart Audio app (Android/iOS).
+
+E4. ANC & TRANSPARENCY MODE
+- Press and hold either earbud for 1 second to cycle: ANC → Transparency → Off.
+- ANC is best in steady-state noise environments (airplane, train). Transparency mode lets environmental sound through for situational awareness.
+
+SECTION F: TECHMART HOMEHUB SPEAKER
+-------------------------------------
+
+F1. INITIAL SETUP
+- Plug in the HomeHub using the included power adapter.
+- Download "TechMart Home" app on your smartphone.
+- Open app → Add Device → HomeHub Speaker. Follow on-screen instructions to connect to your Wi-Fi.
+- Say "Hey Aria" to activate TechMart's AI assistant.
+
+F2. SMART HOME INTEGRATION
+- In TechMart Home app → Integrations → add Alexa, Google Home, Apple HomeKit, or Philips Hue.
+- The HomeHub can control lights, thermostats, smart locks, and other Matter-compatible devices.
+
+F3. MULTI-ROOM AUDIO
+- In TechMart Home app → Rooms → assign HomeHub to a room. Add multiple HomeHub speakers to create a multi-room audio group.
+
+F4. PRIVACY & MICROPHONE
+- Press the physical Mute button on the top to disable microphones (LED turns Red).
+- View microphone activity log in TechMart Home app → Privacy → Microphone History.

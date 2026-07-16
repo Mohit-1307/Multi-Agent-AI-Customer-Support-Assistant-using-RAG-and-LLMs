@@ -1,0 +1,210 @@
+TECHMART ELECTRONICS — USER MANUAL & MAINTENANCE GUIDE
+=======================================================
+
+SECTION 1: ULTRABOOK PRO 15 & AIR 13 — USER GUIDE
+----------------------------------------------------
+
+1.1 KEYBOARD SHORTCUTS (WINDOWS 11)
+Win + D          → Show/hide desktop
+Win + L          → Lock screen
+Win + E          → Open File Explorer
+Win + I          → Open Settings
+Fn + F1          → Mute/unmute audio
+Fn + F2/F3       → Volume down/up
+Fn + F4          → Mute microphone
+Fn + F5          → Toggle keyboard backlight
+Fn + F6/F7       → Screen brightness down/up
+Fn + F8          → Toggle display output (internal/external/mirror)
+Fn + F10         → Toggle touchpad on/off
+Fn + F12         → Toggle TechMart AI Assistant
+Ctrl + Shift + Esc → Task Manager
+
+1.2 BATTERY CARE & MAINTENANCE
+- Best practice: Keep battery between 20% and 80% for daily use to maximize long-term capacity.
+- TechMart Battery Health Mode (TechMart PC Toolkit → Battery → Health Mode): Limits charging to 80% for daily desk use.
+- Full charge (100%) is fine for travel days when you need maximum runtime.
+- Avoid storing the laptop at 0% or 100% for extended periods.
+- Expected battery lifespan: 80% capacity after 1,000 charge cycles.
+- Battery replacement service available through TechMart Warranty (see warranty policy).
+
+1.3 DISPLAY CARE
+- Use a soft, lint-free microfiber cloth to clean the screen. Lightly dampen with water if needed.
+- Never use paper towels, abrasive materials, or household cleaners — these can scratch the anti-reflective coating.
+- Avoid pressing hard on the screen.
+
+1.4 PORTS & CONNECTIVITY
+UltraBook Pro 15:
+  - USB-A 3.2 Gen 2 (10Gbps, up to 900mA): peripherals, USB drives
+  - USB-C Thunderbolt 4 (40Gbps, up to 100W PD charging, 8K display output)
+  - HDMI 2.1 (4K@120Hz or 8K@30Hz external displays)
+  - SD Card Reader (UHS-II)
+  - 3.5mm combo headphone/microphone jack
+
+UltraBook Air 13:
+  - 2× USB-C (USB 3.2 Gen 2, 10Gbps, up to 65W PD charging)
+  - No built-in HDMI or USB-A: use TechMart USB-C Multiport Adapter (sold separately)
+  - 3.5mm combo jack
+
+1.5 STORAGE MANAGEMENT
+- Check disk usage: Settings → System → Storage
+- Free up space: Storage Sense (Settings → System → Storage → Storage Sense)
+- External SSD recommended for large media libraries (TechMart-compatible USB-C SSDs available)
+- TechMart PC Toolkit → Disk Cleaner for safe junk file removal
+
+1.6 FACTORY RESET (WINDOWS 11)
+- Go to Settings → System → Recovery → Reset this PC
+- Choose "Keep my files" (reinstalls Windows, removes apps) or "Remove everything" (full reset)
+- Full reset takes 1–2 hours. Ensure power is connected.
+- All personal data is removed. Backup first via OneDrive, Google Drive, or external drive.
+
+SECTION 2: SMARTPHONE X14 / X14 PRO — USER GUIDE
+--------------------------------------------------
+
+2.1 CAMERA FEATURES
+X14 Camera System:
+  - Main lens (50MP): Best for everyday shots; tap to focus, swipe to zoom
+  - Ultrawide (12MP): Switch to 0.6x in camera app; great for landscapes and group shots
+  - Telephoto (10MP, 3x): Switch to 3x; up to 10x digital zoom
+
+X14 Pro Camera System:
+  - Main (108MP): full resolution mode via "108MP" toggle in Pro mode
+  - Periscope telephoto (10x optical): up to 100x Space Zoom
+  - LiDAR scanner: improves low-light autofocus and AR apps
+  - Night Mode: auto-activates in low light; increase or decrease exposure using the moon slider
+  - Pro Video: 4K@60fps main camera, 4K@30fps front camera; LOG video mode for color grading
+
+2.2 GESTURES (ANDROID 14)
+  - Go home: swipe up from bottom
+  - Go back: swipe in from left or right edge
+  - Recents: swipe up from bottom, hold
+  - Quick Settings: swipe down from top-right corner
+  - Notification shade: swipe down from top-left corner
+  - Split screen: hold Recent button → select "Split screen" → choose second app
+  - One-Hand Mode: swipe down on bottom of screen (enable in Settings → Advanced Features)
+
+2.3 S-PEN (X14 PRO ONLY)
+  - Remove S-Pen from bottom slot; screen auto-opens Air Command menu
+  - Air Actions: hold S-Pen button and gesture to control camera, media, presentation slides
+  - Samsung Notes integration for handwritten notes
+  - Bluetooth enabled; charge by inserting into device (30 seconds = 30 minutes use)
+
+2.4 DEX DESKTOP MODE (X14 PRO ONLY)
+  - Connect phone to monitor via USB-C or wirelessly to a TechMart HomeHub or compatible TV
+  - DeX mode transforms the phone into a desktop-like interface
+  - Use Bluetooth keyboard and mouse for full desktop experience
+  - Access all Android apps in resizable windows
+
+2.5 DIGITAL WELLBEING
+  - Settings → Digital Wellbeing & Parental Controls
+  - App timers: set daily limits per app
+  - Focus Mode: pause distracting apps during work/sleep
+  - Bedtime Mode: grayscale display and DND during set sleep hours
+  - Screen Time dashboard: see daily and weekly usage reports
+
+2.6 FACTORY RESET (ANDROID)
+  - Backup data first (Settings → Google → Backup)
+  - Settings → General Management → Reset → Factory Data Reset
+  - Confirm with PIN. Process takes 5–10 minutes.
+  - Remove Google account before factory reset if selling/giving away device to prevent FRP lock.
+
+SECTION 3: TABPRO 11 — USER GUIDE
+------------------------------------
+
+3.1 PRODUCTIVITY FEATURES
+  - Split screen: open an app, hold Recent button, choose "Open in Split Screen View," select second app
+  - Pop-up view: hover an app in Recents, select "Open in Pop-up View" for floating window
+  - TechMart Notes (pre-installed): handwriting with Stylus Pro 2, convert handwriting to text
+  - Samsung DeX available via USB-C (same as X14 Pro)
+
+3.2 STYLUS PRO 2 PRESSURE & TILT
+  - 4,096 pressure levels: adjust brush size in drawing apps by pressing harder or lighter
+  - Tilt support: tilt stylus at an angle to shade like a pencil in art apps
+  - Latency: 2.8ms panel response (TechMart proprietary low-latency screen)
+
+3.3 PARENTAL CONTROLS (FOR KIDS)
+  - Settings → Digital Wellbeing → Parental Controls → Set Up
+  - Use Family Link to monitor and control apps, screen time, and location (Android)
+
+SECTION 4: SMARTWATCH SERIES 3 — FEATURES
+-------------------------------------------
+
+4.1 HEALTH TRACKING FEATURES
+  - Heart Rate: continuous 24/7 monitoring; alerts for abnormally high (>120 bpm at rest) or low (<50 bpm)
+  - SpO2: automatic overnight; manual reading anytime from Health tile
+  - ECG: 30-second single-lead ECG; store results in TechMart Health app; share PDF with doctor
+  - Stress: measured every hour via heart rate variability (HRV); breathing exercises if high stress detected
+  - Sleep: automatic detection; tracks light, deep, REM sleep; sleep score in morning
+  - Temperature: continuous skin temp monitoring; deviation alerts
+
+4.2 WORKOUT MODES (90+ SUPPORTED)
+  - Auto-detect: watch detects walk, run, swim, cycling automatically after 10 minutes
+  - Manual: press Crown, scroll to Workout, choose from 90+ modes
+  - Route tracking: GPS for outdoor runs, walks, hikes, cycling
+  - Swim: waterproof to 5ATM; tracks laps, strokes, SWOLF score
+
+4.3 SAFETY FEATURES
+  - Fall Detection: detects hard falls; starts 60-second countdown; auto-calls emergency contact if no response
+  - Crash Detection: similar to fall detection but tuned for vehicle impacts
+  - Emergency SOS: press and hold Crown for 3 seconds → calls emergency services and notifies contacts
+  - Location sharing: share real-time GPS location with emergency contacts via TechMart Watch app
+
+4.4 WATCH FACE & CUSTOMIZATION
+  - Press and hold watch face → Customize → choose from TechMart Gallery or design custom face
+  - Change band: press both band release buttons (sides of case) and slide out; slide in new 22mm band
+  - Compatible bands: TechMart official bands and standard 22mm third-party bands
+
+SECTION 5: EARBUDS PRO — CARE & MAINTENANCE
+----------------------------------------------
+
+5.1 CLEANING
+  - Earbuds: use dry cotton swab to clean speaker mesh and sensors. Never use liquid directly on earbuds.
+  - Case: wipe with dry microfiber cloth. For charging contacts, use dry cotton swab.
+  - Ear tips: remove and wash with mild soapy water; dry fully before reattaching.
+  - Frequency: clean weekly for heavy users.
+
+5.2 EAR TIP FIT
+  - Proper fit is essential for optimal ANC and bass response.
+  - The right ear tip creates a light seal in the ear canal — not a deep insert.
+  - Test: put earbuds in, play music; hold hand over right earbud — if bass noticeably increases, the seal is good. If not, try a different tip size.
+  - Sizes included: XS, S, M (pre-installed), L, XL.
+
+5.3 FIRMWARE UPDATES
+  - Updates via TechMart Audio app (Android/iOS) → Earbuds → Check for Updates
+  - Keep earbuds in case during update; ensure case is at least 30% charged.
+
+SECTION 6: GENERAL SAFETY INFORMATION
+---------------------------------------
+
+6.1 BATTERY SAFETY
+  - Do not disassemble, crush, puncture, or expose any TechMart device to fire or extreme heat.
+  - If a battery swells (visible bulge), stop using immediately, do not charge, and contact TechMart support.
+  - Do not use third-party chargers with unapproved wattage — risk of overheating or battery damage.
+  - Charge in well-ventilated areas; do not charge under pillows or blankets.
+
+6.2 ELECTROMAGNETIC INTERFERENCE
+  - Keep TechMart devices at least 15cm from pacemakers. Consult a physician if you have a pacemaker.
+  - Power off devices on aircraft unless airline explicitly permits Airplane Mode use.
+  - SmartWatch: not suitable for use near MRI machines; remove before any MRI examination.
+
+6.3 ERGONOMICS
+  - Laptops: use at eye level on a desk. Use an external keyboard and mouse if laptop is raised.
+  - Smartphones and tablets: take breaks every 30 minutes to reduce eye strain and repetitive strain.
+  - Earbuds: keep volume below 85dB for prolonged use. The TechMart Audio app shows volume level in dB.
+  - TechMart devices support EU Volume Limitation at 85dB for European users.
+
+6.4 OPERATING ENVIRONMENT
+  - Storage temperature: -20°C to 45°C (-4°F to 113°F)
+  - Operating temperature: 0°C to 35°C (32°F to 95°F)
+  - Humidity: 5%–95% non-condensing
+  - Altitude: Up to 5,000m (16,400 ft)
+
+SECTION 7: CONTACTING SUPPORT
+-------------------------------
+All TechMart product documentation is available at: www.techmartelectronics.com/support
+Download TechMart PC Toolkit: www.techmartelectronics.com/downloads
+TechMart Audio App: Search "TechMart Audio" on Google Play or App Store
+TechMart Watch App: Search "TechMart Watch" on Google Play or App Store
+TechMart Home App: Search "TechMart Home" on Google Play or App Store
+
+Support: 1-800-TECHMART | support@techmartelectronics.com
+Hours: Mon–Fri 8AM–9PM EST; Sat–Sun 9AM–6PM EST

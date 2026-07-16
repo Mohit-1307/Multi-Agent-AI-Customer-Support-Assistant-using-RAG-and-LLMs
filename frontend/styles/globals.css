@@ -1,0 +1,1304 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables — brand colors, sidebar sizing, and a few reusable
+   neutral tones pulled out of chat.js to avoid repeating raw hex codes */
+:root {
+
+  --techmart-blue: #5b6472;
+
+  --techmart-blue-dark: #3c4451;
+
+  --techmart-blue-light: #e8e2d6;
+
+  --techmart-gray-50: #c7d9ca;
+
+  --techmart-gray-100: #e8e2d6;
+
+  --techmart-gray-200: #c9c2b4;
+
+  --techmart-gray-700: #4a4437;
+
+  --techmart-gray-900: #2e2a22;
+
+  --sidebar-width: 280px;
+
+  /* Sidebar/header neutrals — extracted from chat.js duplicates */
+  --tm-text-strong: #1a1a1a;
+
+  --tm-text-muted: #8a8578;
+
+  --tm-text-faint: #a8a297;
+
+  --tm-text-slate: #64748b;
+
+  --tm-text-slate-dim: #5c5849;
+
+  --tm-border-light: #eae7de;
+
+  --tm-danger: #ef4444;
+
+  /* Agent icon accent pair — extracted from repeated AGENT_META svg colors */
+  --tm-accent-fill: #dbeafe;
+
+  --tm-accent-stroke: #2563eb;
+
+}
+
+/* Base — apply border-box sizing everywhere so padding/border never
+   inflate an element's declared width/height */
+* {
+
+  box-sizing: border-box;
+
+}
+
+html,
+body {
+
+  height: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  background-color: var(--techmart-gray-50);
+
+  color: var(--techmart-gray-900);
+
+  -webkit-font-smoothing: antialiased;
+
+}
+
+/* Next.js root mount point — needs full height so the flex chat layout below works */
+#__next {
+
+  height: 100%;
+
+}
+
+/* Typography — consistent heading weight/line-height across the app */
+h1,
+
+h2,
+
+h3,
+
+h4,
+
+h5,
+
+h6 {
+
+  font-weight: 600; 
+
+  line-height: 1.25;
+
+}
+
+
+/* Chat Layout — the top-level sidebar + main content flex container */
+.chat-layout {
+
+  display: flex;
+
+  height: 100vh;
+
+  overflow: hidden;
+
+}
+
+.chat-sidebar {
+
+  width: var(--sidebar-width);
+
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  flex-shrink: 0;
+
+  background: rgb(255, 255, 255);
+
+  color: rgb(255, 255, 255);
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+}
+
+.chat-main {
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+}
+
+/* Message Bubbles — the two chat bubble styles: outgoing (user) and incoming (assistant) */
+.message-user {
+
+  background: #888585;
+
+  color: rgb(255, 255, 255);
+
+  border-radius: 18px 18px 4px 18px;
+
+  padding: 5px 10px;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  word-break: break-word;
+
+  overflow-wrap: break-word;
+
+  line-height: 1.6;
+
+  margin-left: auto;
+
+  font-size: 15px;
+
+  border: 0px solid #ffffff;
+
+  box-shadow: 0px 0px 8px rgba(99, 102, 241, 0.3);
+
+}
+
+.message-assistant {
+
+  background: #cbc1c1;
+
+  color: #000000;
+
+  border-radius: 18px 18px 18px 4px;
+
+  padding: 12px 16px;
+
+  width: fit-content;
+
+  min-width: 44px;
+
+  max-width: 100%;
+
+  overflow-wrap: break-word;
+
+  line-height: 1.6;
+
+  border: 0px solid #ffffff;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+}
+
+/* Typing Indicator — the three bouncing dots shown while the assistant is "typing" */
+@keyframes bounce {
+
+  0%,
+
+  80%,
+
+  100% {
+
+    transform: scale(0.6);
+
+    opacity: 0.4;
+
+  }
+
+  40% {
+
+    transform: scale(1);
+
+    opacity: 1;
+
+  }
+
+}
+
+.typing-dot {
+
+  width: 8px;
+
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #5b6472;
+
+  animation: bounce 1.4s infinite ease-in-out;
+
+  display: inline-block;
+
+  margin: 0 2px;
+
+}
+
+/* Stagger each dot's animation so they bounce in sequence rather than all at once */
+.typing-dot:nth-child(1) {
+
+  animation-delay: -0.32s;
+
+}
+
+.typing-dot:nth-child(2) {
+
+  animation-delay: -0.16s;
+
+}
+
+.typing-dot:nth-child(3) {
+
+  animation-delay: 0s;
+
+}
+
+/* Agent Badge — small pill label showing which agent handled a message */
+.agent-badge {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  padding: 2px 8px;
+
+  border-radius: 20px;
+
+  letter-spacing: 0.3px;
+
+}
+
+/* One color variant per agent domain, so badges are visually distinct at a glance */
+.agent-billing {
+
+  background: #fef3c7;
+
+  color: #92400e;
+
+}
+
+.agent-technical {
+
+  background: #dbeafe;
+
+  color: #1e40af;
+
+}
+
+.agent-product {
+
+  background: #d1fae5;
+
+  color: #065f46;
+
+}
+
+.agent-complaint {
+
+  background: #fee2e2;
+
+  color: #991b1b;
+
+}
+
+.agent-faq {
+
+  background: #f3e8ff;
+
+  color: #6b21a8;
+
+}
+
+.agent-general {
+
+  background: #f1f5f9;
+
+  color: #475569;
+
+}
+
+/* Sentiment Badge — color-codes the detected sentiment of a message */
+.sentiment-positive {
+
+  color: #059669;
+
+}
+
+.sentiment-neutral {
+
+  color: #64748b;
+
+}
+
+.sentiment-negative {
+
+  color: #d97706;
+
+}
+
+.sentiment-frustrated {
+
+  color: #dc2626;
+
+}
+
+/* Sidebar Items — the clickable session list entries in the sidebar */
+.sidebar-item {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: background 0.15s;
+
+  font-size: 14px;
+
+  color: #c9c2b4;
+
+}
+
+.sidebar-item:hover {
+
+  background: rgba(255, 255, 255, 0.07);
+
+  color: white;
+
+}
+
+.sidebar-item.active {
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: white;
+
+}
+
+/* Input — the main chat message textarea */
+.chat-input {
+
+  border: 1.5px solid #c9c2b4;
+
+  border-radius: 12px;
+
+  padding: 12px 16px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  resize: none;
+
+  line-height: 1.5;
+
+  background: white;
+
+  transition:
+
+    border-color 0.15s,
+
+    box-shadow 0.15s;
+
+  width: 100%;
+
+}
+
+.chat-input:focus {
+
+  border-color: #5b6472;
+
+  box-shadow: 0 0 0 3px rgba(91, 100, 114, 0.1);
+
+}
+
+/* Buttons */
+.btn-primary {
+
+  background: #5b6472;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 10px 20px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+
+    background 0.15s,
+
+    transform 0.1s;
+
+}
+
+.btn-primary:hover {
+
+  background: #3c4451;
+
+}
+
+.btn-primary:active {
+
+  transform: scale(0.98);
+
+}
+
+.btn-primary:disabled {
+
+  background: #a8a093;
+
+  cursor: not-allowed;
+
+}
+
+.btn-send {
+
+  background: #5b6472;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 10px;
+
+  width: 44px;
+
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+  transition:
+
+    background 0.15s,
+
+    transform 0.1s;
+
+}
+
+/* NOTE (preserved as-is): this rule applies to the *enabled* send button,
+    but sets cursor: not-allowed, which reads as backwards — an enabled
+    button showing a "can't click me" cursor. Left unchanged since fixing
+    it would be a behavior/style change, just flagging it here. */
+.btn-send:enabled {
+
+  background: rgb(68, 142, 194);
+
+  cursor: allowed;
+
+}
+
+.btn-send:disabled {
+
+  background: rgb(173, 173, 173);
+
+  cursor: not-allowed;
+
+}
+
+.btn-send:active {
+
+  transform: scale(0.95);
+
+}
+
+/* Card — generic bordered container used for panels/widgets */
+.card {
+
+  background: white;
+
+  border-radius: 12px;
+
+  border: 1px solid #c9c2b4;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+
+}
+
+/* Star Rating — the clickable stars used in the feedback widget */
+.star-btn {
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  padding: 0 4px;
+
+  transition: transform 0.1s;
+
+  line-height: 1;
+
+}
+
+.star-btn:hover {
+
+  transform: scale(1.2);
+
+}
+
+/* Auth Forms — shared input styling for the login/register pages */
+.auth-input {
+
+  border: 1.5px solid #c9c2b4;
+
+  border-radius: 10px;
+
+  padding: 12px 14px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  width: 100%;
+
+  transition:
+
+    border-color 0.15s,
+
+    box-shadow 0.15s;
+
+  background: white;
+
+}
+
+.auth-input:focus {
+
+  border-color: #5b6472;
+
+  box-shadow: 0 0 0 3px rgba(91, 100, 114, 0.1);
+
+}
+
+/* Animations — small entrance effects reused across the UI */
+@keyframes fadeInUp {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+/* Applied to each new chat message as it appears */
+.message-enter {
+
+  animation: fadeInUp 0.25s ease-out;
+
+}
+
+@keyframes fadeIn {
+
+  from {
+
+    opacity: 0;
+
+  }
+
+  to {
+
+    opacity: 1;
+
+  }
+
+}
+
+/* Generic fade-in helper, used for error banners and similar transient UI */
+.fade-in {
+
+  animation: fadeIn 0.3s ease-out;
+
+}
+
+/* Chart Containers — fixed-height wrapper so charts render at a predictable size */
+.chart-container {
+
+  position: relative;
+
+  height: 200px;
+
+  width: 100%;
+
+}
+
+/* Responsive — collapse the sidebar into an off-canvas drawer on small screens */
+@media (max-width: 768px) {
+
+  :root {
+
+    --sidebar-width: 0px;
+
+  }
+
+  .chat-sidebar {
+
+    position: fixed;
+
+    left: -280px;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 280px;
+
+    z-index: 50;
+
+    transition: left 0.3s ease;
+
+  }
+
+  /* Sidebar slides into view when the mobile menu is toggled open */
+  .chat-sidebar.open {
+
+    left: 0;
+
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+
+  }
+
+  .message-user,
+
+  .message-assistant {
+
+    max-width: 90%;
+
+  }
+
+}
+
+/* Voice Button Pulse Ring — animated ring shown while voice input is listening */
+@keyframes voicePulse {
+
+  0% {
+
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
+
+  }
+
+  70% {
+
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+
+  }
+
+  100% {
+
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+
+  }
+
+}
+
+.voice-listening {
+
+  animation: voicePulse 1.2s infinite;
+
+}
+
+/* Sidebar Collapse — fully hides the sidebar (used by a manual collapse toggle,
+   separate from the responsive/mobile breakpoint above) */
+.sidebar-collapsed .chat-sidebar {
+
+  width: 0;
+
+  overflow: hidden;
+
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+/* Show delete button on hover — keeps the per-session delete icon hidden
+   until the user hovers over that sidebar row */
+.sidebar-item:hover .delete-btn {
+
+  opacity: 1 !important;
+
+}
+
+/* Quick-question buttons — light mode hover */
+.quick-question-btn {
+
+  transition:
+
+    background 0.18s ease,
+
+    border-color 0.18s ease,
+
+    transform 0.18s ease,
+
+    box-shadow 0.18s ease;
+
+}
+
+.quick-question-btn:hover {
+
+  background: #eff9ff !important;
+
+  border-color: #60a5fa !important;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+
+}
+
+/* Theme switch transition — apply globally so toggling light/dark mode
+   fades smoothly across every major surface instead of flashing instantly */
+body,
+
+.chat-layout,
+
+.chat-sidebar,
+
+.chat-main,
+
+header,
+
+.card,
+
+.message-assistant,
+
+.message-user,
+
+.chat-input,
+
+.btn-primary,
+
+.btn-send {
+
+  transition:
+
+    background-color 0.3s ease,
+
+    color 0.3s ease,
+
+    border-color 0.3s ease,
+
+    box-shadow 0.3s ease;
+
+}
+
+/* ---------------------------------------------------------------------------- */
+/* DARK THEME                                                   */
+/* ---------------------------------------------------------------------------- */
+/* Root dark palette — CSS variables scoped to .dark-mode, overriding
+   the light-mode defaults defined in :root above */
+.dark-mode {
+
+  --dm-bg-base: #0f1115;
+
+  --dm-bg-elevated: #17191f;
+
+  --dm-bg-card: #1b1e26;
+
+  --dm-bg-hover: #22252e;
+
+  --dm-bg-input: #1a1d24;
+
+  --dm-border: #2a2d38;
+
+  --dm-border-subtle: #23262f;
+
+  --dm-text-primary: #e8e9ed;
+
+  --dm-text-secondary: #9a9ea8;
+
+  --dm-text-muted: #6b6f7a;
+
+  --dm-accent: #5b8def;
+
+  --dm-accent-hover: #4a7ce0;
+
+  --dm-accent-soft: rgba(91, 141, 239, 0.12);
+
+  --dm-danger: #f0665c;
+
+  --dm-danger-soft: rgba(240, 102, 92, 0.12);
+
+  background: var(--dm-bg-base);
+
+  color: var(--dm-text-primary);
+
+  transition:
+
+    background 0.3s ease,
+
+    color 0.3s ease;
+
+  animation: dmFadeIn 0.25s ease-out;
+
+}
+
+/* Layout */
+.dark-mode .chat-layout {
+
+  background: var(--dm-bg-base);
+
+}
+
+.dark-mode .chat-main {
+
+  background: var(--dm-bg-base);
+
+}
+
+.dark-mode .chat-sidebar {
+
+  background: var(--dm-bg-elevated) !important;
+
+  border-right: 1px solid var(--dm-border-subtle) !important;
+
+}
+
+/* Header */
+.dark-mode header,
+
+.dark-mode .topbar {
+
+  background: var(--dm-bg-elevated) !important;
+
+  color: var(--dm-text-primary) !important;
+
+  border-bottom: 1px solid var(--dm-border-subtle) !important;
+
+  backdrop-filter: blur(8px);
+
+}
+
+/* Sidebar + Header Text — force all descendant text to the dark-mode text color */
+.dark-mode .chat-sidebar *,
+
+.dark-mode .topbar * {
+
+  color: var(--dm-text-primary) !important;
+
+  transition: color 0.2s ease;
+
+}
+
+/* Welcome Screen */
+.dark-mode h1,
+
+.dark-mode h2,
+
+.dark-mode h3,
+
+.dark-mode h4 {
+
+  color: var(--dm-text-primary) !important;
+
+}
+
+.dark-mode p {
+
+  color: var(--dm-text-secondary) !important;
+
+}
+
+/* Assistant Messages */
+.dark-mode .message-assistant {
+
+  background: var(--dm-bg-card);
+
+  color: var(--dm-text-primary);
+
+  border: 1px solid var(--dm-border-subtle);
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+
+  transition:
+
+    background 0.25s ease,
+
+    border-color 0.25s ease;
+
+}
+
+/* User Messages */
+.dark-mode .message-user {
+
+  background: linear-gradient(135deg, var(--dm-accent), #4a7ce0);
+
+  color: #ffffff;
+
+  box-shadow: 0 2px 10px rgba(91, 141, 239, 0.25);
+
+}
+
+/* Cards */
+.dark-mode .card {
+
+  background: var(--dm-bg-card);
+
+  border: 1px solid var(--dm-border-subtle);
+
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+
+  transition:
+
+    background 0.25s ease,
+
+    border-color 0.25s ease,
+
+    box-shadow 0.25s ease;
+
+}
+
+.dark-mode .card:hover {
+
+  border-color: var(--dm-border);
+
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+}
+
+/* Input Area */
+.dark-mode .input-area {
+
+  background: var(--dm-bg-elevated);
+
+
+  border-top: none;
+
+}
+
+/* Inputs */
+.dark-mode .chat-input,
+
+.dark-mode input,
+
+.dark-mode textarea,
+
+.dark-mode select {
+
+  background: var(--dm-bg-input) !important;
+
+  color: var(--dm-text-primary) !important;
+
+  border: 1px solid var(--dm-border) !important;
+
+  transition:
+
+    border-color 0.2s ease,
+
+    box-shadow 0.2s ease,
+
+    background 0.2s ease;
+
+}
+
+.dark-mode .chat-input:focus,
+
+.dark-mode input:focus,
+
+.dark-mode textarea:focus {
+
+  border-color: var(--dm-accent) !important;
+
+  box-shadow: 0 0 0 3px var(--dm-accent-soft) !important;
+
+  outline: none;
+
+}
+
+.dark-mode .chat-input::placeholder,
+
+.dark-mode textarea::placeholder,
+
+.dark-mode input::placeholder {
+
+  color: var(--dm-text-muted) !important;
+
+}
+
+/* Auth Inputs */
+.dark-mode .auth-input {
+
+  background: var(--dm-bg-input);
+
+  color: var(--dm-text-primary);
+
+  border: 1px solid var(--dm-border);
+
+  transition:
+
+    border-color 0.2s ease,
+
+    box-shadow 0.2s ease;
+
+}
+
+.dark-mode .auth-input:focus {
+
+  border-color: var(--dm-accent);
+
+  box-shadow: 0 0 0 3px var(--dm-accent-soft);
+
+}
+
+.dark-mode .quick-question-btn:hover {
+
+  background: var(--dm-accent-soft) !important;
+
+
+  border-color: var(--dm-accent) !important;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 4px 12px rgba(91, 141, 239, 0.15);
+
+}
+
+/* Buttons */
+.dark-mode button {
+
+  color: var(--dm-text-primary);
+
+  transition:
+
+    background 0.18s ease,
+
+    color 0.18s ease,
+
+    transform 0.12s ease,
+
+    box-shadow 0.18s ease;
+
+}
+
+.dark-mode button:hover {
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode button:active {
+
+  transform: scale(0.97);
+
+}
+
+/* Primary button */
+.dark-mode .btn-primary {
+
+  background: var(--dm-accent);
+
+  color: #ffffff;
+
+  box-shadow: 0 2px 8px rgba(91, 141, 239, 0.25);
+
+}
+
+.dark-mode .btn-primary:hover {
+
+  background: var(--dm-accent-hover);
+
+  box-shadow: 0 4px 14px rgba(91, 141, 239, 0.35);
+
+  transform: translateY(-1px);
+
+}
+
+.dark-mode .btn-primary:active {
+
+  transform: translateY(0) scale(0.98);
+
+}
+
+.dark-mode .btn-primary:disabled {
+
+  background: var(--dm-bg-hover);
+
+  color: var(--dm-text-muted);
+
+  box-shadow: none;
+
+}
+
+/* Send Button */
+.dark-mode .btn-send:disabled {
+
+  background: var(--dm-bg-hover);
+
+  color: var(--dm-text-muted);
+
+  cursor: not-allowed;
+
+  opacity: 0.7;
+
+  box-shadow: none;
+
+}
+
+.dark-mode .btn-send:not(:disabled) {
+
+  background: var(--dm-accent);
+
+  color: white;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 10px rgba(91, 141, 239, 0.3);
+
+}
+
+.dark-mode .btn-send:not(:disabled):hover {
+
+  background: var(--dm-accent-hover);
+
+  box-shadow: 0 4px 16px rgba(91, 141, 239, 0.4);
+
+  transform: translateY(-1px) scale(1.03);
+
+}
+
+.dark-mode .btn-send:not(:disabled):active {
+
+  transform: translateY(0) scale(0.96);
+
+}
+
+/* White/Slate Background Overrides — remap Tailwind's light-mode utility
+   classes to dark-mode-appropriate backgrounds wherever they're used */
+.dark-mode .bg-white {
+
+  background: var(--dm-bg-elevated) !important;
+
+}
+
+.dark-mode .bg-slate-50,
+
+.dark-mode .bg-slate-100 {
+
+  background: var(--dm-bg-card) !important;
+
+}
+
+/* Text Overrides — remap Tailwind's slate text utility classes to dark-mode text colors */
+.dark-mode .text-slate-900,
+
+.dark-mode .text-slate-800,
+
+.dark-mode .text-slate-700,
+
+.dark-mode .text-slate-600,
+
+.dark-mode .text-slate-500,
+
+.dark-mode .text-slate-400 {
+
+  color: var(--dm-text-secondary) !important;
+
+}
+
+/* Border Overrides */
+.dark-mode .border-slate-100,
+
+.dark-mode .border-slate-300 {
+
+  border-color: var(--dm-border-subtle) !important;
+
+}
+
+.dark-mode .border-slate-200 {
+
+  border-color: var(--dm-border) !important;
+
+}
+
+/* Scrollbar — styled scrollbar for WebKit browsers (Chrome, Safari, Edge) in dark mode */
+.dark-mode ::-webkit-scrollbar {
+
+  width: 6px;
+
+  height: 6px;
+
+}
+
+.dark-mode ::-webkit-scrollbar-track {
+
+  background: transparent;
+
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+
+  background: var(--dm-border);
+
+
+  border-radius: 10px;
+
+  transition: background 0.2s ease;
+
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+
+  background: var(--dm-text-muted);
+
+}
+
+/* Subtle fade-in when dark mode activates */
+@keyframes dmFadeIn {
+  
+  from {
+    
+    opacity: 0.85;
+    
+  }
+  
+  to {
+    
+    opacity: 1;
+    
+  }
+  
+}

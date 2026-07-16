@@ -1,0 +1,154 @@
+{
+
+  "evaluation_date": "2026-07-07",
+
+  "model": "llama-3.1-8b-instant via Groq",
+
+  "embedding_model": "all-MiniLM-L6-v2",
+
+  "total_test_queries": 10,
+
+  "correct_intent_detection": 9,
+
+  "intent_accuracy_percent": 90,
+
+  "correct_agent_routing": 9,
+
+  "routing_accuracy_percent": 90,
+
+  "average_response_time_ms": 1200,
+
+  "multilingual_support": ["English", "Hindi", "Spanish", "French", "German"],
+
+  "rag_retrieval_working": true,
+
+  "vector_store": "FAISS",
+
+  "total_chunks_indexed": 217,
+
+  "knowledge_base_documents": 8,
+
+  "results": [
+
+    {
+      
+      "query": "I want a refund",
+      
+      "expected": "refund",
+      
+      "got": "refund",
+      
+      "correct": true
+      
+    },
+
+    {
+      
+      "query": "My laptop won't turn on",
+      
+      "expected": "technical",
+      
+      "got": "technical",
+      
+      "correct": true
+      
+    },
+
+    {
+      "query": "SmartPhone X14 Pro specs",
+      
+      "expected": "product",
+      
+      "got": "product",
+      
+      "correct": true
+      
+    },
+
+    {
+      
+      "query": "I am very angry",
+      
+      "expected": "complaint",
+      
+      "got": "complaint",
+      
+      "correct": true
+      
+    },
+
+    {
+      
+      "query": "Business hours?",
+      
+      "expected": "faq",
+      
+      "got": "faq",
+      
+      "correct": true
+      
+    },
+
+    {
+      
+      "query": "Charged twice",
+      
+      "expected": "billing",
+      
+      "got": "billing",
+      
+      "correct": true
+      
+    },
+
+    {
+      
+      "query": "नमस्ते रिटर्न पॉलिसी",
+      
+      "expected": "refund",
+      
+      "got": "refund",
+      
+      "correct": true
+      
+    },
+
+    {
+      
+      "query": "Hola devoluciones",
+      
+      "expected": "refund",
+      
+      "got": "refund",
+      
+      "correct": true
+      
+    },
+
+    {
+      
+      "query": "Shipping time?",
+      
+      "expected": "faq",
+      
+      "got": "faq",
+      
+      "correct": true
+      
+    },
+
+    {
+      
+      "query": "Premium still locked",
+      
+      "expected": "billing",
+      
+      "got": "general",
+      
+      "correct": false
+      
+    }
+
+  ]
+
+}

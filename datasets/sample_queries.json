@@ -1,0 +1,47 @@
+[
+  { "query": "What is your return policy?", "expected_intent": "faq" },
+
+  { "query": "My laptop won't turn on", "expected_intent": "technical" },
+
+  { "query": "I want a refund for my order", "expected_intent": "refund" },
+
+  {
+
+    "query": "Tell me about the UltraBook Pro 15",
+
+    "expected_intent": "product"
+  },
+
+  {
+
+    "query": "My subscription was charged twice",
+
+    "expected_intent": "billing"
+  },
+
+  {
+    "query": "I am very angry with your service",
+
+    "expected_intent": "complaint"
+  },
+  
+  { "query": "How long does shipping take?", "expected_intent": "faq" },
+
+  { "query": "My phone keeps crashing", "expected_intent": "technical" },
+
+  {
+
+    "query": "How much does the SmartWatch cost?",
+
+    "expected_intent": "product"
+
+  },
+
+  {
+
+    "query": "Can I cancel my TechMart Care plan?",
+
+    "expected_intent": "billing"
+
+  }
+]

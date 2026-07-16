@@ -1,0 +1,126 @@
+TECHMART ELECTRONICS — WARRANTY POLICY
+=======================================
+Effective Date: January 1, 2024
+
+1. LIMITED WARRANTY OVERVIEW
+------------------------------
+TechMart Electronics ("TechMart") warrants that its products will be free from defects in materials and workmanship under normal use and service conditions for the duration specified below. This warranty is extended to the original purchaser only and is non-transferable.
+
+2. WARRANTY PERIODS BY PRODUCT CATEGORY
+-----------------------------------------
+a) Laptops and Desktop Computers
+   Standard Warranty: 1 year from the date of purchase
+   TechMart Care Basic: 2 years total (standard + 1 additional year)
+   TechMart Care Pro: 3 years total (standard + 2 additional years)
+
+b) Smartphones
+   Standard Warranty: 1 year from the date of purchase
+   TechMart Care: Extends to 2 or 3 years depending on plan tier
+
+c) Tablets
+   Standard Warranty: 1 year from the date of purchase
+
+d) Smartwatches and Wearables
+   Standard Warranty: 1 year from the date of purchase
+
+e) Wireless Earbuds and Headphones
+   Standard Warranty: 1 year from the date of purchase (does not cover ear tips and cushions, which are consumable parts)
+
+f) Smart Home Speakers and HomeHub Devices
+   Standard Warranty: 1 year from the date of purchase
+
+g) Accessories (cables, chargers, cases, adapters)
+   Standard Warranty: 90 days from the date of purchase
+
+h) Certified Refurbished Products
+   Warranty: 90 days from the date of purchase
+
+3. WHAT IS COVERED
+-------------------
+The TechMart limited warranty covers:
+  - Manufacturing defects in materials and workmanship
+  - Hardware failures under normal use conditions
+  - Defective screens, batteries, or ports that fail within the warranty period under normal use
+  - Internal component failures not caused by external damage
+
+4. WHAT IS NOT COVERED (WARRANTY EXCLUSIONS)
+----------------------------------------------
+The warranty does NOT cover:
+  - Physical damage caused by drops, impacts, crushing, or bending
+  - Liquid or moisture damage
+  - Damage resulting from unauthorized modifications or repairs
+  - Normal wear and tear (scratches, fading, discoloration of external surfaces)
+  - Consumable parts (batteries when capacity reduces below 80% within warranty period is covered; ear tips, stylus tips are not)
+  - Damage from power surges or improper voltage
+  - Cosmetic damage that does not affect functionality
+  - Products with removed or altered serial numbers
+  - Damage caused by operating the product outside the permitted or intended uses described in the documentation
+  - Software issues, viruses, or corrupted operating system
+  - Loss or theft
+
+NOTE: TechMart Care Pro subscribers receive accidental damage coverage (screen cracks, liquid damage) for up to 2 incidents per subscription year, subject to a service fee of $49 (smartphones) or $79 (laptops).
+
+5. HOW TO MAKE A WARRANTY CLAIM
+---------------------------------
+Step 1: Gather the following:
+  - Proof of purchase (order confirmation email, receipt, or account purchase history)
+  - Product serial number (found on the device, original packaging, or account device list)
+  - Description and photos/video of the defect or issue
+
+Step 2: Contact TechMart:
+  - Online: Log into your account, go to "Devices," select the product, and click "Request Warranty Service."
+  - Phone: Call 1-800-TECHMART and select "Warranty Service"
+  - Email: warranty@techmartelectronics.com
+
+Step 3: Diagnosis and Resolution:
+  - A TechMart technician will review your claim within 2 business days.
+  - If the issue can be resolved remotely (e.g., software issue), instructions will be provided.
+  - If a hardware repair or replacement is required, TechMart will issue a prepaid shipping label to send your device to a TechMart Service Center.
+
+Step 4: Repair or Replacement:
+  - Repair: Estimated turnaround is 7–14 business days.
+  - Replacement: If the device cannot be repaired, TechMart will replace it with the same or a functionally equivalent model (refurbished or new, at TechMart's discretion).
+  - Data backup before shipping is the customer's sole responsibility. TechMart is not responsible for data loss during repair.
+
+6. OUT-OF-WARRANTY SERVICE
+----------------------------
+For devices outside the warranty period, TechMart offers paid repair services. Diagnostic fees start at $39.99 (applied toward the repair cost if you proceed). Contact warranty@techmartelectronics.com for a service quote.
+
+7. TECHMART CARE SUBSCRIPTION — EXTENDED PROTECTION
+------------------------------------------------------
+TechMart Care is an optional subscription that extends and enhances the standard warranty:
+
+TechMart Care Basic ($4.99/month or $49.99/year):
+  - Extended warranty from 1 year to 2 years
+  - Priority support (24-hour response time)
+  - Free standard repair shipping
+
+TechMart Care Pro ($9.99/month or $99.99/year):
+  - Extended warranty from 1 year to 3 years
+  - Accidental damage protection (up to 2 claims/year; $49–$79 service fee per claim)
+  - 4-hour priority support response
+  - Free express repair shipping
+  - Free battery replacement if capacity falls below 80% within 3 years
+  - Double TechMart Rewards points on all purchases
+
+TechMart Care Business ($24.99/month per device):
+  - All Pro features
+  - Dedicated business account manager
+  - On-site repair for qualifying metro areas
+  - 1-hour support SLA
+  - Bulk device management
+
+8. WARRANTY FOR REPAIRED UNITS
+-------------------------------
+Repaired or replaced parts/products carry a 90-day warranty or the remainder of the original warranty, whichever is longer.
+
+9. LIMITATION OF LIABILITY
+----------------------------
+TO THE EXTENT PERMITTED BY APPLICABLE LAW, THIS WARRANTY AND THE REMEDIES SET FORTH ABOVE ARE EXCLUSIVE AND IN LIEU OF ALL OTHER WARRANTIES, REMEDIES, AND CONDITIONS, WHETHER ORAL, WRITTEN, STATUTORY, EXPRESS, OR IMPLIED. TECHMART'S LIABILITY UNDER THIS WARRANTY SHALL NOT EXCEED THE ORIGINAL PURCHASE PRICE OF THE PRODUCT.
+
+10. CONTACT WARRANTY SUPPORT
+------------------------------
+Phone: 1-800-TECHMART (select option 3 for Warranty)
+Email: warranty@techmartelectronics.com
+Hours: Monday–Friday, 8 AM–9 PM EST; Saturday 9 AM–6 PM EST
+Self-Service: www.techmartelectronics.com/warranty

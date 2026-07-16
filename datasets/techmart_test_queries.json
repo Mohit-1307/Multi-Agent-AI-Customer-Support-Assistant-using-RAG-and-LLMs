@@ -1,0 +1,123 @@
+[
+  {
+
+    "query": "I want a refund for my order",
+
+    "expected_intent": "refund",
+
+    "expected_agent": "billing",
+
+    "language": "english"
+
+  },
+
+  {
+    
+    "query": "My laptop screen is black and won't turn on",
+    
+    "expected_intent": "technical",
+    
+    "expected_agent": "technical",
+    
+    "language": "english"
+    
+  },
+
+  {
+    
+    "query": "Tell me about SmartPhone X14 Pro specifications",
+    
+    "expected_intent": "product",
+    
+    "expected_agent": "product",
+    
+    "language": "english"
+    
+  },
+
+  {
+    
+    "query": "I am very angry with your terrible service",
+    
+    "expected_intent": "complaint",
+    
+    "expected_agent": "complaint",
+    
+    "language": "english"
+    
+  },
+
+  {
+    
+    "query": "What are your business hours?",
+    
+    "expected_intent": "faq",
+    
+    "expected_agent": "faq",
+    
+    "language": "english"
+    
+  },
+
+  {
+    
+    "query": "My subscription was charged twice",
+    
+    "expected_intent": "billing",
+    
+    "expected_agent": "billing",
+    
+    "language": "english"
+    
+  },
+  
+
+  {
+    "query": "नमस्ते रिटर्न पॉलिसी क्या है?",
+    
+    "expected_intent": "refund",
+    
+    "expected_agent": "billing",
+    
+    "language": "hindi"
+    
+  },
+
+  {
+    
+    "query": "Hola política de devoluciones",
+    
+    "expected_intent": "refund",
+    
+    "expected_agent": "billing",
+    
+    "language": "spanish"
+    
+  },
+
+  {
+    
+    "query": "How long does shipping take?",
+    
+    "expected_intent": "faq",
+    
+    "expected_agent": "faq",
+    
+    "language": "english"
+    
+  },
+
+  {
+    
+    "query": "I paid yesterday but Premium is still locked",
+    
+    "expected_intent": "billing",
+    
+    "expected_agent": "billing",
+    
+    "language": "english",
+    
+    "note": "Should also invoke technical agent"
+    
+  }
+]

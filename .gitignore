@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+venv/
+env/
+.env
+*.egg-info/
+dist/
+build/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Vector Store (auto-generated)
+backend/vectorstore/faiss_index/faiss.index
+backend/vectorstore/faiss_index/chunks.pkl
+
+# Node / Frontend
+node_modules/
+.next/
+out/
+frontend/.next/
+frontend/out/
+frontend/node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.local
+.env.production

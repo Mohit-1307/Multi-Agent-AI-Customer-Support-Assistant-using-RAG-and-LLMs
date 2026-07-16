@@ -1,0 +1,188 @@
+TECHMART ELECTRONICS — PRODUCT CATALOG
+=======================================
+Updated: October 2024
+
+TechMart Electronics offers a premium lineup of consumer electronics engineered for performance, reliability, and design. All prices listed are USD MSRP.
+
+=======================================================
+1. LAPTOPS
+=======================================================
+
+TechMart UltraBook Pro 15
+--------------------------
+Price: $1,299.99
+SKU: TM-LPT-UBP15-512
+Display: 15.6" IPS, 2560x1440 (QHD), 144Hz refresh rate, 500 nits brightness
+Processor: Intel Core i7-13700H (up to 5.0GHz, 14-core)
+RAM: 16GB DDR5 (expandable to 64GB)
+Storage: 512GB NVMe SSD (PCIe Gen 4); expandable via 2nd M.2 slot
+GPU: NVIDIA GeForce RTX 4060 8GB
+Battery: 86Wh, up to 12 hours (normal use)
+Ports: 2x USB-A 3.2, 2x USB-C Thunderbolt 4, 1x HDMI 2.1, SD Card Reader, 3.5mm headphone jack
+OS: Windows 11 Home (Windows 11 Pro upgrade available)
+Weight: 1.9 kg (4.2 lbs)
+Colors: Midnight Black, Platinum Silver
+Warranty: 1 year limited (TechMart Care available)
+Best For: Professionals, content creators, gamers
+
+TechMart UltraBook Air 13
+--------------------------
+Price: $999.99
+SKU: TM-LPT-UBA13-256
+Display: 13.3" OLED, 2560x1600, 60Hz, 1000 nits peak, P3 color gamut
+Processor: Apple M3-level custom ARM SoC (TechMart Apex A1 chip, 8-core CPU, 10-core GPU)
+RAM: 8GB unified memory (16GB upgrade: $1,149.99)
+Storage: 256GB SSD (512GB upgrade: $1,099.99)
+Battery: 52Wh, up to 18 hours
+Ports: 2x USB-C (USB 3.2 Gen 2), 1x 3.5mm headphone jack
+OS: Windows 11 Home
+Weight: 1.1 kg (2.4 lbs)
+Colors: Space Gray, Starlight Silver, Midnight Blue, Rose Blush
+Warranty: 1 year limited (TechMart Care available)
+Best For: Students, travelers, everyday productivity
+
+=======================================================
+2. SMARTPHONES
+=======================================================
+
+TechMart SmartPhone X14
+------------------------
+Price: $799.99
+SKU: TM-PHN-X14-128
+Display: 6.1" Super AMOLED, 2400x1080 FHD+, 120Hz, 1500 nits (HDR10+)
+Processor: TechMart Apex M2 chip (4nm, 8-core)
+RAM: 8GB
+Storage: 128GB UFS 3.1 (no microSD)
+Primary Camera: 50MP main, 12MP ultrawide, 10MP telephoto (3x optical)
+Front Camera: 12MP, Face Unlock
+Battery: 4,500mAh, 45W wired charging, 15W wireless, 5W reverse wireless
+OS: Android 14 (3 years OS updates, 4 years security patches)
+5G: Yes (Sub-6GHz and mmWave)
+Water Resistance: IP68 (1.5m, 30 minutes)
+Colors: Obsidian Black, Pearl White, Pacific Blue, Autumn Olive
+Biometrics: In-display fingerprint, Face Unlock
+Storage Options: 128GB ($799.99), 256GB ($849.99)
+Warranty: 1 year limited
+
+TechMart SmartPhone X14 Pro
+----------------------------
+Price: $1,099.99
+SKU: TM-PHN-X14P-256
+Display: 6.7" ProMotion LTPO AMOLED, 2778x1284, 1–120Hz adaptive, 2000 nits
+Processor: TechMart Apex M2 Pro (3nm, 10-core)
+RAM: 12GB
+Storage: 256GB UFS 4.0
+Primary Camera: 108MP main (OIS), 12MP ultrawide, 12MP periscope telephoto (10x optical), LiDAR sensor
+Front Camera: 16MP, 4K video
+Battery: 5,500mAh, 65W SuperCharge wired, 30W wireless
+5G: Yes (all bands including mmWave)
+Water Resistance: IP68 (2m, 30 minutes)
+Extras: Satellite SOS connectivity, S-Pen stylus included, DeX desktop mode
+Colors: Titanium Gray, Phantom Burgundy, Glacier White, Desert Sand
+Biometrics: Under-display ultrasonic fingerprint, 3D Face Unlock
+Storage Options: 256GB ($1,099.99), 512GB ($1,199.99), 1TB ($1,399.99)
+Warranty: 1 year limited
+
+=======================================================
+3. TABLETS
+=======================================================
+
+TechMart TabPro 11
+-------------------
+Price: $549.99 (Wi-Fi only); $649.99 (Wi-Fi + 5G)
+SKU: TM-TAB-TP11-128
+Display: 11" LTPS IPS LCD, 2388x1668, 120Hz ProMotion
+Processor: TechMart Apex A1 chip (8-core CPU, 9-core GPU)
+RAM: 8GB
+Storage: 128GB (256GB: $599.99; 512GB: $699.99)
+Rear Camera: 12MP
+Front Camera: 12MP (Center Stage auto-framing)
+Battery: 8,000mAh, up to 14 hours
+Charging: 30W wired USB-C
+Stylus: TechMart Stylus Pro 2 compatible (sold separately, $99.99)
+Keyboard: TechMart Smart Keyboard Folio compatible (sold separately, $129.99)
+OS: Android 14 Tablet UI
+Colors: Space Gray, Starlight
+Warranty: 1 year limited
+
+=======================================================
+4. WEARABLES
+=======================================================
+
+TechMart SmartWatch Series 3
+------------------------------
+Price: $299.99
+SKU: TM-WCH-SW3-44
+Display: 44mm Always-On LTPO AMOLED, 484x396
+Processor: TechMart W3 chip
+Storage: 32GB
+Connectivity: Bluetooth 5.3, Wi-Fi 6, NFC, GPS, LTE (optional: +$50)
+Health Sensors: Heart rate, SpO2, ECG, skin temperature, stress monitoring, sleep tracking
+Battery: 600mAh, up to 3 days (1 day with LTE and always-on)
+Water Resistance: 5ATM + IP6X
+OS: TechMartOS (compatible with Android 10+ and iOS 16+)
+Case Materials: Aluminum (standard), Titanium (Sport Edition: $399.99)
+Band Width: 22mm (interchangeable)
+Colors: Midnight, Starlight, Product Red
+Additional: Fall detection, Crash detection, Emergency SOS, NFC payments
+Warranty: 1 year limited
+
+TechMart True Wireless Earbuds Pro
+------------------------------------
+Price: $149.99
+SKU: TM-AUD-TWEP-BLK
+Driver: 11mm dynamic + balanced armature hybrid
+ANC: Hybrid Active Noise Cancellation (up to -35dB)
+Transparency Mode: Yes
+Battery Life: 7 hours (earbuds), 28 hours total with case
+Charging: USB-C + wireless charging case
+Connectivity: Bluetooth 5.3, multipoint (2 devices simultaneously)
+Water Resistance: IPX4 (earbuds), IPX2 (case)
+Controls: Touch + voice (Google Assistant, Siri, Bixby compatible)
+Latency: 45ms Low Latency Gaming Mode
+Colors: Obsidian Black, Ivory White, Sage Green
+Audio Codec: SBC, AAC, LDAC (Hi-Res Audio certified)
+Warranty: 1 year limited (ear tips: not covered)
+
+=======================================================
+5. SMART HOME
+=======================================================
+
+TechMart HomeHub Speaker
+--------------------------
+Price: $199.99
+SKU: TM-SHM-HHSMAX
+Audio: 360° omnidirectional, 4 tweeters + 1 subwoofer woofer, 50W total
+Smart Assistant: TechMart Aria AI (also works with Alexa, Google Assistant)
+Connectivity: Wi-Fi 6, Bluetooth 5.1, Thread, Zigbee, Matter
+Features: Smart home control hub (controls lights, thermostats, locks), multi-room audio, Spotify Connect, Apple AirPlay 2
+Display: 4.5" color touchscreen
+Microphones: 8-mic array with far-field recognition (up to 8 meters)
+Privacy: Hardware microphone mute button with LED indicator
+Power: AC adapter (bundled)
+Colors: Charcoal, Chalk, Sage
+Warranty: 1 year limited
+
+=======================================================
+6. ACCESSORIES
+=======================================================
+
+TechMart Stylus Pro 2: $99.99 — for TabPro 11, 4096 pressure levels, tilt support, magnetic charge
+TechMart Smart Keyboard Folio (11-inch): $129.99 — backlit keys, trackpad, for TabPro 11
+TechMart 65W USB-C GaN Charger: $39.99 — charges laptop/phone/tablet simultaneously (3 ports)
+TechMart 200W USB-C Cable (2m): $19.99 — USB 4.0, 8K video, 240W charging
+TechMart SmartPhone X14/X14 Pro Clear Case: $29.99 — MagSafe compatible
+TechMart UltraBook Pro 15 Sleeve: $49.99 — water-resistant neoprene with accessory pocket
+TechMart 15W MagSafe Wireless Charger: $34.99 — for SmartPhone X14/X14 Pro
+TechMart HomeHub Smart Plug (2-pack): $29.99 — Matter-compatible, energy monitoring
+TechMart Gift Card: $25/$50/$100/$200/$500
+
+=======================================================
+7. WHERE TO BUY
+=======================================================
+  - Online: www.techmartelectronics.com
+  - Authorized resellers: Best Buy, Amazon, B&H Photo (selected models)
+  - Education Store: www.techmartelectronics.com/education (10% student/educator discount)
+  - Business Store: www.techmartelectronics.com/business (volume pricing available)
+
+PRICE DISCLAIMER: Prices are MSRP as of October 2024. Sale prices may vary. TechMart reserves the right to change pricing without notice.
