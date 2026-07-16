@@ -124,7 +124,7 @@ app.add_middleware(
         
         "https://techmart-backend-jl0y.onrender.com",
         
-        "https://techmart-ai-support.vercel.app/"
+        "https://techmart-ai-support.vercel.app"
         
     ],
     
