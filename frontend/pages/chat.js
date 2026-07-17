@@ -3759,18 +3759,33 @@ export default function ChatPage() {
 
       setMessages((prev) => [...prev, aiMsg]);
     } catch (err) {
-      const isTimeout = err.message.includes("timed out") || err.message.includes("timeout");
+
+      const isTimeout =
+
+        err.message.includes("timed out") ||
+
+        err.message.includes("timeout") ||
+
+        err.message.includes("aborted") ||
+
+        err.message.includes("abort");
 
       const errorMsg = isTimeout
-        ? "The response is taking longer than usual. Please try sending your message again."
+
+        ? "⏳ AI is still thinking... Please wait 30 seconds and try again. (First response is slow on free server)"
+
         : err.message.includes("Failed to fetch")
-          ? "Connection error. Please check your internet and try again."
+
+          ? "🔌 Connection error. Backend may be waking up — wait 60 seconds and retry."
+
           : `Something went wrong: ${err.message}. Please try again.`;
 
       setMessages((prev) => [
+
         ...prev,
 
         {
+
           id: Date.now(),
 
           role: "assistant",
@@ -3779,11 +3794,16 @@ export default function ChatPage() {
 
           agent: "general",
 
-          timestamp: new Date().toISOString(),
+          timestamp: new Date().toISOString()
+
         },
+        
       ]);
+      
     } finally {
+      
       setIsTyping(false);
+      
     }
   }, [input, currentSessionId, isTyping]);
 

@@ -63,13 +63,19 @@ def send_email(to_email: str, subject: str, body: str) -> bool:
         msg.attach(MIMEText(body, "plain"))
 
         # starttls() upgrades the plain connection to an encrypted one before login
-        with smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT) as server:
-
+        with smtplib.SMTP(settings.SMTP_HOST, int(settings.SMTP_PORT)) as server:
+            
+            server.ehlo()
+            
             server.starttls()
-
+            
+            server.ehlo()
+            
             server.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
-
+            
             server.send_message(msg)
+            
+            print(f"DEBUG EMAIL SUCCESS | Sent to {to_email}")
 
         logger.info(f"Email sent to {to_email}: {subject}")
 
