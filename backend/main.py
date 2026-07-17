@@ -74,27 +74,8 @@ async def lifespan(app: FastAPI):
         
         logger.warning("No saved FAISS index found. Will build on first request.")
 
-    # Pre-load embedding model in background to avoid slow first request
-    import asyncio
+    logger.info("Startup complete. Embedding loads on first request.")
     
-    async def preload_embeddings():
-        
-        try:
-            
-            from .rag.embeddings import get_embedding_manager
-            
-            embedder = get_embedding_manager(settings.EMBEDDING_MODEL)
-            
-            embedder.embed_query("warmup")
-            
-            logger.info("Embedding model pre-loaded successfully.")
-            
-        except Exception as e:
-            
-            logger.warning(f"Embedding preload failed: {e}")
-
-    asyncio.create_task(preload_embeddings())
-
     yield
 
 
