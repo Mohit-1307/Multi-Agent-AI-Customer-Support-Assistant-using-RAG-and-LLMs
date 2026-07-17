@@ -16,10 +16,6 @@ build/
 *.sqlite
 *.sqlite3
 
-# Vector Store (auto-generated)
-backend/vectorstore/faiss_index/faiss.index
-backend/vectorstore/faiss_index/chunks.pkl
-
 # Node / Frontend
 node_modules/
 .next/
