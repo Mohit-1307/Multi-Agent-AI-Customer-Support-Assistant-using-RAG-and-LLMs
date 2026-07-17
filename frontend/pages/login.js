@@ -26,6 +26,9 @@ export default function LoginPage() {
   // True while the login request is in flight, disables the submit button
   const [loading, setLoading] = useState(false);
 
+  // To Show/Hide Password
+  const [showPassword, setShowPassword] = useState(false);
+
   useEffect(() => {
 
     // If a valid session already exists, skip the login form entirely
@@ -72,8 +75,6 @@ export default function LoginPage() {
     }
 
   };
-
-  const [showPassword, setShowPassword] = useState(false);
 
   return (
 
@@ -170,69 +171,89 @@ export default function LoginPage() {
 
                 <div style = {{ position: "relative" }}>
 
-                <input
+                  <input
 
-                type = {showPassword ? "text" : "password"}
-                  
-                />
+                    type = {showPassword ? "text" : "password"}
 
-                <button
+                    name = "password"
 
-                  type = "button"
+                    value = {form.password}
 
-                  onClick = {() => setShowPassword(prev => !prev)}
+                    onChange = {handleChange}
 
-                  style = {{
+                    placeholder="••••••••"
 
-                    position: "absolute",
+                    className = "w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-sm"
 
-                    right: 12,
+                    style = {{ paddingRight: "44px" }}
 
-                    top: "50%",
+                    autoComplete = "current-password"
 
-                    transform: "translateY(-50%)",
+                    required
 
-                    background: "none",
+                  />
 
-                    border: "none",
+                  <button
 
-                    cursor: "pointer",
+                    type = "button"
 
-                    color: "#64748B",
+                    onClick={() => setShowPassword((prev) => !prev)}
 
-                    padding: 0
+                    style={{
 
-                  }}
+                      position: "absolute",
 
-                >
+                      right: 12,
 
-                  {showPassword ? (
+                      top: "50%",
 
-                    <svg width = "18" height = "18" viewBox = "0 0 24 24" fill = "none" stroke = "currentColor" strokeWidth = "2" strokeLinecap = "round" strokeLinejoin = "round">
+                      transform: "translateY(-50%)",
 
-                      <path d = "M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                      background: "none",
 
-                      <path d = "M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                      border: "none",
 
-                      <line x1 = "1" y1 = "1" x2 = "23" y2 = "23"/>
+                      cursor: "pointer",
 
-                    </svg>
+                      color: "#64748B",
 
-                  ) : (
+                      padding: 0,
 
-                    <svg width = "18" height = "18" viewBox = "0 0 24 24" fill = "none" stroke = "currentColor" strokeWidth = "2" strokeLinecap = "round" strokeLinejoin = "round">
+                      display: "flex",
 
-                      <path d = "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                      alignItems: "center"
 
-                      <circle cx = "12" cy = "12" r = "3"/>
+                    }}
 
-                    </svg>
+                  >
 
-                  )}
+                    {showPassword ? (
 
-                </button>
+                      <svg width = "18" height = "18" viewBox = "0 0 24 24" fill = "none" stroke = "currentColor" strokeWidth = "2" strokeLinecap = "round" strokeLinejoin = "round">
 
-              </div>
+                        <path d = "M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+
+                        <path d = "M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+
+                        <line x1 ="1" y1 = "1" x2 = "23" y2 = "23"/>
+
+                      </svg>
+
+                    ) : (
+
+                      <svg width = "18" height = "18" viewBox = "0 0 24 24" fill = "none" stroke = "currentColor" strokeWidth = "2" strokeLinecap = "round" strokeLinejoin = "round">
+
+                        <path d = "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+
+                        <circle cx = "12" cy = "12" r = "3"/>
+
+                      </svg>
+
+                    )}
+
+                  </button>
+
+                </div>
 
               </div>
 
@@ -294,8 +315,8 @@ export default function LoginPage() {
 
                         d = "M4 12a8 8 0 018-8v8H4z"
 
-
                       />
+
                     </svg>
 
                     Signing in...
@@ -325,7 +346,6 @@ export default function LoginPage() {
                   className = "text-blue-400 hover:text-blue-300 font-medium transition-colors"
 
                 >
-
                   Create one
 
                 </Link>
