@@ -136,7 +136,9 @@ export default function RegisterPage() {
 
     <>
       <Head>
+
         <title>Create Account — TechMart AI Support</title>
+
       </Head>
 
       <div className = "min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 px-4 py-8">
@@ -154,15 +156,21 @@ export default function RegisterPage() {
           <div className = "text-center mb-8">
 
             <div className = "inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-600 text-white text-3xl font-bold mb-4 shadow-lg shadow-blue-600/30">
+
               T
+
             </div>
 
             <h1 className = "text-2xl font-bold text-white">
+
               Create Your Account
+
             </h1>
 
             <p className = "text-slate-400 text-sm mt-1">
+
               Get started with TechMart AI Support
+
             </p>
 
           </div>
@@ -174,7 +182,9 @@ export default function RegisterPage() {
               <div>
 
                 <label className = "block text-sm font-medium text-slate-300 mb-1.5">
+
                   Full Name
+
                 </label>
 
                 <input
@@ -200,7 +210,9 @@ export default function RegisterPage() {
               <div>
 
                 <label className = "block text-sm font-medium text-slate-300 mb-1.5">
+
                   Email Address
+
                 </label>
 
                 <input
@@ -230,10 +242,15 @@ export default function RegisterPage() {
                 <div>
 
                   <label className = "block text-sm font-medium text-slate-300 mb-1.5">
+
                     Phone Number
+
                     <span className = "text-slate-500 font-normal ml-1">
+
                       (optional — for WhatsApp alerts)
+
                     </span>
+
                   </label>
 
                   <input
@@ -253,32 +270,84 @@ export default function RegisterPage() {
                   />
 
                   <p className = "text-slate-500 text-xs mt-1">
+
                     Include country code e.g. +91 for India, +1 for US
+
                   </p>
 
                 </div>
 
                 <label className = "block text-sm font-medium text-slate-300 mb-1.5">
+
                   Password
+
                 </label>
+
+                <div style={{ position: "relative" }}>
 
                 <input
 
-                  type = "password"
-
-                  name = "password"
-
-                  value = {form.password}
-
-                  onChange = {handleChange}
-
-                  placeholder = "Min. 6 characters"
-
-                  className = "w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-sm"
-
-                  required
-
+                  type={showPassword ? "text" : "password"}
+                
                 />
+
+                <button
+
+                  type="button"
+
+                  onClick={() => setShowPassword(prev => !prev)}
+
+                  style={{
+
+                    position: "absolute",
+
+                    right: 12,
+
+                    top: "50%",
+
+                    transform: "translateY(-50%)",
+
+                    background: "none",
+
+                    border: "none",
+
+                    cursor: "pointer",
+
+                    color: "#64748B",
+
+                    padding: 0
+
+                  }}
+
+                >
+
+                  {showPassword ? (
+
+                    <svg width = "18" height = "18" viewBox = "0 0 24 24" fill = "none" stroke = "currentColor" strokeWidth = "2" strokeLinecap = "round" strokeLinejoin = "round">
+
+                      <path d = "M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+
+                      <path d = "M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+
+                      <line x1 = "1" y1 = "1" x2 = "23" y2 = "23"/>
+
+                    </svg>
+
+                  ) : (
+
+                    <svg width = "18" height = "18" viewBox = "0 0 24 24" fill = "none" stroke = "currentColor" strokeWidth = "2" strokeLinecap = "round" strokeLinejoin = "round">
+
+                      <path d = "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+
+                      <circle cx = "12" cy = "12" r = "3"/>
+
+                    </svg>
+
+                  )}
+
+                </button>
+
+              </div>
 
                 {form.password && (
 
@@ -297,7 +366,9 @@ export default function RegisterPage() {
                     </div>
 
                     <span className = "text-xs text-slate-400">
+
                       {strengthLabel[strength]}
+
                     </span>
 
                   </div>
@@ -309,7 +380,9 @@ export default function RegisterPage() {
               <div>
 
                 <label className = "block text-sm font-medium text-slate-300 mb-1.5">
+
                   Confirm Password
+
                 </label>
 
                 <input
@@ -333,7 +406,9 @@ export default function RegisterPage() {
                 {form.confirm && form.password !== form.confirm && (
 
                   <p className = "text-red-400 text-xs mt-1.5">
+
                     Passwords don't match
+
                   </p>
 
                 )}
@@ -343,7 +418,9 @@ export default function RegisterPage() {
               {error && (
 
                 <div className = "bg-red-500/10 border border-red-500/30 rounded-xl px-4 py-3 text-red-400 text-sm fade-in">
+
                   ⚠️ {error}
+
                 </div>
 
               )}
@@ -395,8 +472,11 @@ export default function RegisterPage() {
                         d = "M4 12a8 8 0 018-8v8H4z"
 
                       />
+
                     </svg>
+
                     Creating account...
+
                   </>
 
                 ) : (
@@ -412,7 +492,9 @@ export default function RegisterPage() {
             <div className = "mt-6 pt-6 border-t border-white/10 text-center">
 
               <p className = "text-slate-400 text-sm">
+
                 Already have an account?{" "}
+
                 <Link
 
                   href = "/login"
@@ -420,7 +502,9 @@ export default function RegisterPage() {
                   className = "text-blue-400 hover:text-blue-300 font-medium"
 
                 >
+
                   Sign in
+
                 </Link>
               </p>
 
