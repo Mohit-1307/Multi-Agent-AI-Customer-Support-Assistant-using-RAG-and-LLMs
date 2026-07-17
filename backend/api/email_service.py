@@ -41,6 +41,14 @@ def send_email(to_email: str, subject: str, body: str) -> bool:
         logger.warning("Email not configured — skipping email send")
 
         return False
+    
+    print(f"DEBUG EMAIL | Attempting to send to: {to_email}")
+    
+    print(f"DEBUG EMAIL | SMTP: {settings.SMTP_HOST}:{settings.SMTP_PORT}")
+    
+    print(f"DEBUG EMAIL | User: {settings.SMTP_USER}")
+    
+    print(f"DEBUG EMAIL | Password set: {bool(settings.SMTP_PASSWORD)}")
 
     try:
 
