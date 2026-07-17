@@ -361,7 +361,7 @@ export default function LoginPage() {
 
             <p className = "text-slate-500 text-xs">
 
-              Demo: admin@techmart.com / admin123
+              Demo: admin@gmail.com / admin123
 
             </p>
 
