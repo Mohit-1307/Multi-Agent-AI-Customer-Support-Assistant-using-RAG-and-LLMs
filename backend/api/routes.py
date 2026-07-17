@@ -1540,7 +1540,7 @@ async def restore_all_deleted_sessions(current_user: User = Depends(get_current_
     return SuccessResponse(message = "All deleted conversations restored")
 
 
-@router.get("/health", tags = ["System"])
+@router.api_route("/health", methods=["GET", "HEAD"], tags=["System"])
 async def health_check():
     
     "Simple health check endpoint — reports app status and whether the RAG knowledge base index is loaded and ready."
