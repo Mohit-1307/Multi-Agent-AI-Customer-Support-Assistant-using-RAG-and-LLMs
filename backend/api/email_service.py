@@ -49,6 +49,8 @@ def send_email(to_email: str, subject: str, body: str) -> bool:
     print(f"DEBUG EMAIL | User: {settings.SMTP_USER}")
     
     print(f"DEBUG EMAIL | Password set: {bool(settings.SMTP_PASSWORD)}")
+    
+    print(f"DEBUG EMAIL | to = {to_email} host = {settings.SMTP_HOST} user = {settings.SMTP_USER} pass_len = {len(settings.SMTP_PASSWORD or '')}")
 
     try:
 
