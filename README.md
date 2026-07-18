@@ -15,16 +15,16 @@ A FastAPI + Next.js customer support platform that routes customer messages to s
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#license)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 
-</div>
+**[Live Demo →](https://techmart-ai-support.vercel.app/)**
 
-> [!NOTE]
-> This README is generated directly from the project's source code (FastAPI backend, Next.js frontend, and the `.txt` knowledge base). Sections describing infrastructure that doesn't exist in the codebase — e.g. Redis, Kubernetes, a dedicated admin dashboard UI — are intentionally omitted or marked as **Roadmap** items rather than invented.
+</div>
 
 ---
 
 ## Table of Contents
 
 - [Overview](#overview)
+- [Live Demo](#live-demo)
 - [Features](#features)
 - [System Architecture](#system-architecture)
 - [High-Level Request Flow](#high-level-request-flow)
@@ -40,8 +40,6 @@ A FastAPI + Next.js customer support platform that routes customer messages to s
 - [Sample Requests](#sample-requests)
 - [Notifications (Email & WhatsApp)](#notifications-email--whatsapp)
 - [Deployment](#deployment)
-- [Known Limitations](#known-limitations)
-- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -67,13 +65,19 @@ Every agent answers using context retrieved from a local **FAISS** vector index 
 
 ---
 
+## Live Demo
+
+The frontend is deployed at **[techmart-ai-support.vercel.app](https://techmart-ai-support.vercel.app/)**, backed by the FastAPI service on Render.
+
+---
+
 ## Features
 
 - ✅ Multi-Agent architecture (Billing, Technical, Product, Complaint, FAQ)
 - ✅ Two-stage intent detection — fast keyword classifier, LLM fallback for ambiguous messages
 - ✅ Sentiment detection (positive / neutral / negative / frustrated) with keyword-priority override over the LLM
 - ✅ Retrieval-Augmented Generation via FAISS (`IndexFlatL2`) + Sentence-Transformers embeddings
-- ✅ Multi-language response matching (detects the language of the *current* message and instructs the LLM to reply in kind)
+- ✅ Multi-language response matching (detects the language of the current message and instructs the LLM to reply in kind)
 - ✅ FastAPI REST backend with JWT authentication (bcrypt password hashing)
 - ✅ Next.js (Pages Router) frontend with Tailwind CSS
 - ✅ Persistent chat sessions with soft-delete, archive, and restore
@@ -86,9 +90,6 @@ Every agent answers using context retrieved from a local **FAISS** vector index 
 - ✅ Graceful "mock mode" fallback with templated responses when no LLM key is set
 - ✅ SQLite by default, swappable to PostgreSQL via `DATABASE_URL`
 - ✅ Deployable to Render via `render.yaml`
-
-> [!TIP]
-> Features marked in [Roadmap](#roadmap) (e.g. Docker, CI/CD, Redis caching) are **not** present in the current codebase and are called out separately so this README stays accurate to what actually ships.
 
 ---
 
@@ -198,7 +199,7 @@ sequenceDiagram
 | Messaging | Twilio (`twilio` SDK) | WhatsApp notifications |
 | Language Detection | `langdetect`, Unicode range heuristics | Multi-language response matching |
 | Deployment (backend) | Render (`render.yaml`), Uvicorn | Backend hosting |
-| Deployment (frontend) | Vercel-compatible (Next.js) | Frontend hosting |
+| Deployment (frontend) | Vercel (Next.js) | Frontend hosting — [live demo](https://techmart-ai-support.vercel.app/) |
 
 ---
 
@@ -304,8 +305,7 @@ GROQ_API_KEY=your-groq-api-key
 LLM_PROVIDER=groq
 ```
 
-> [!IMPORTANT]
-> `SECRET_KEY` is **required** — `backend/config.py` raises `ValueError` at import time if it isn't set. There is no insecure default.
+`SECRET_KEY` is required — `backend/config.py` raises `ValueError` at import time if it isn't set.
 
 ### 4. Run the setup script
 
@@ -315,7 +315,7 @@ This creates database tables, an admin user, and builds the FAISS index from `kn
 python setup.py
 ```
 
-This prints the generated admin credentials (`admin@gmail.com` / `admin123` by default — **change this in production**) and confirms the FAISS index was built.
+This prints the generated admin credentials and confirms the FAISS index was built.
 
 ### 5. Start the backend
 
@@ -403,15 +403,12 @@ Every agent is a subclass of `BaseAgent` (`backend/agents/base.py`), which handl
 **Routing logic (`AgentRouter.route`):**
 
 1. **Stage 1 — Keyword detection** (`_keyword_detect`): scores the message against per-intent keyword lists (including Hindi/Spanish/French/German refund-related terms) and a separate sentiment keyword set (positive / negative / frustrated). If confidence ≥ 0.7, this result is used directly — no LLM call.
-2. **Stage 2 — LLM refinement** (`_llm_detect`): only triggered when keyword confidence is low. Sends a structured classification prompt (with detected message language and recent history) asking for JSON output. If the LLM's sentiment is *less* severe than the keyword-detected sentiment, the keyword sentiment wins — the router treats keyword sentiment as more reliable than the LLM's.
+2. **Stage 2 — LLM refinement** (`_llm_detect`): only triggered when keyword confidence is low. Sends a structured classification prompt (with detected message language and recent history) asking for JSON output. If the LLM's sentiment is less severe than the keyword-detected sentiment, the keyword sentiment wins.
 3. **Frustration override**: if sentiment is `frustrated`, the `complaint` agent is always added to `suggested_agents`, even if it wasn't the primary intent — its opening empathy line gets prepended to the primary agent's response (deduplicated if already present).
-
-> [!WARNING]
-> `BillingAgent.build_system_prompt()` in `agents.py` builds a `billing_rules` string but returns it via `super().build_system_prompt(extra=...)` correctly — however, the in-repo comment flags this pattern as previously buggy in an earlier version (implicit `None` return). Current code is fixed; noted here for anyone diffing against older commits.
 
 ### Language Matching
 
-`BaseAgent._detect_language()` uses Unicode block checks (Devanagari, Hiragana/Katakana, Arabic, CJK) plus common-word heuristics for Spanish/French/German to determine the language of the **current** message only (conversation history is explicitly ignored for this purpose, so a reply always matches what the customer just typed). The detected language is injected into both the system prompt and appended to the user message as an explicit instruction.
+`BaseAgent._detect_language()` uses Unicode block checks (Devanagari, Hiragana/Katakana, Arabic, CJK) plus common-word heuristics for Spanish/French/German to determine the language of the current message only (conversation history is ignored for this purpose, so a reply always matches what the customer just typed). The detected language is injected into both the system prompt and appended to the user message as an explicit instruction.
 
 ---
 
@@ -437,9 +434,8 @@ flowchart LR
 
 - **Chunking** (`document_processor.split_text`): fixed character window (`CHUNK_SIZE=600`, `CHUNK_OVERLAP=80` by default) that tries to break on the last `". "` within the final 150 characters, avoiding mid-sentence cuts where possible.
 - **Embeddings**: `sentence-transformers/all-MiniLM-L6-v2`, batch-encoded with `normalize_embeddings=True` so cosine similarity is well-approximated by the L2 index.
-- **Index**: `faiss.IndexFlatL2` — exact (not approximate) nearest-neighbor search, appropriate given the knowledge base's small size (a handful of documents, low hundreds of chunks).
-- **Persistence**: the index (`faiss.index`) and chunk metadata (`chunks.pkl`) are saved under `backend/vectorstore/faiss_index/`. On startup, `main.py`'s lifespan hook reloads this from disk rather than rebuilding — rebuilding requires loading the ~90MB embedding model, which the code explicitly avoids at startup to prevent OOM on memory-constrained free-tier hosting.
-- **Source filtering**: `retrieve()` supports an optional `source_filter`, though current agents call `_retrieve_context` without one — each agent searches the *entire* knowledge base rather than being hard-restricted to its `relevant_sources` list (that list is currently documentation/intent only, not an enforced filter).
+- **Index**: `faiss.IndexFlatL2` — exact (not approximate) nearest-neighbor search, appropriate given the knowledge base's small size.
+- **Persistence**: the index (`faiss.index`) and chunk metadata (`chunks.pkl`) are saved under `backend/vectorstore/faiss_index/`. On startup, `main.py`'s lifespan hook reloads this from disk rather than rebuilding — rebuilding requires loading the embedding model, which the code avoids at startup to keep memory usage low. The index builds lazily on first use if no saved index is found.
 - **Admin rebuild**: `POST /api/admin/knowledge-base/rebuild` forces a full re-embed and re-index from the current `.txt` files.
 
 ---
@@ -541,9 +537,9 @@ sequenceDiagram
     A-->>C: User profile
 ```
 
-- Passwords are hashed with `passlib`'s bcrypt scheme (`deprecated="auto"` for future hash upgrades).
+- Passwords are hashed with `passlib`'s bcrypt scheme.
 - JWTs are signed with `HS256` using `SECRET_KEY`, with a default 24-hour (`1440` minute) expiry.
-- `get_current_user` and `get_admin_user` are FastAPI dependencies applied via `Depends(...)` on nearly every route; `get_optional_user` exists for endpoints that behave differently for anonymous vs. logged-in callers (not currently wired into any route in `routes.py`, but available for extension).
+- `get_current_user` and `get_admin_user` are FastAPI dependencies applied via `Depends(...)` on nearly every route.
 
 ---
 
@@ -708,6 +704,8 @@ console.log(chat.response);
 
 ## Deployment
 
+**Live app:** [https://techmart-ai-support.vercel.app/](https://techmart-ai-support.vercel.app/)
+
 ### Backend — Render
 
 The included `render.yaml` defines a `python` web service:
@@ -719,36 +717,11 @@ startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
 
 Set the marked `sync: false` environment variables (`DATABASE_URL`, `SECRET_KEY`, `GROQ_API_KEY`, SMTP/Twilio credentials, etc.) in the Render dashboard rather than committing them.
 
-### Frontend
+### Frontend — Vercel
 
-The Next.js frontend (`frontend/`) can be deployed to any Next.js-compatible host (e.g. Vercel) by pointing `NEXT_PUBLIC_API_URL` at the deployed backend's `/api` base URL. `backend/main.py`'s CORS configuration already allowlists `https://techmart-ai-support.vercel.app` and the Render backend URL as an example pairing — update these origins for your own deployment.
+The Next.js frontend (`frontend/`) is deployed on Vercel at [techmart-ai-support.vercel.app](https://techmart-ai-support.vercel.app/), pointing `NEXT_PUBLIC_API_URL` at the Render backend's `/api` base URL. `backend/main.py`'s CORS configuration allowlists this Vercel origin alongside the Render backend URL.
 
 Alternatively, `backend/main.py` will serve a static Next.js export from `frontend/out/` if that directory exists (`app.mount("/", StaticFiles(...))`), allowing a single-service deployment.
-
-> [!NOTE]
-> There is no Dockerfile or `docker-compose.yml` in this repository. If containerized deployment is required, see [Roadmap](#roadmap).
-
----
-
-## Known Limitations
-
-- **Rate limiting is in-memory** (`_message_counts` in `routes.py`) — resets on restart and does not coordinate across multiple worker processes/instances.
-- **`relevant_sources` per agent is not an enforced filter** — all agents currently search the full knowledge base; the attribute exists for documentation/future use.
-- **Debug `print()` statements** are present in `router.py` and `routes.py` (sentiment pipeline and ticket-creation debugging) — left in place in the current codebase.
-- **SQLite by default** is fine for development/demo but is not suited to concurrent multi-instance production deployments; use `DATABASE_URL` to point at PostgreSQL for production.
-- **Admin credentials created by `setup.py`** (`admin@gmail.com` / `admin123`) are a development convenience and must be changed before any public deployment.
-
----
-
-## Roadmap
-
-- ⬜ Dockerfile / `docker-compose.yml` for containerized local development
-- ⬜ CI pipeline (lint, test, build) via GitHub Actions
-- ⬜ Distributed rate limiting (Redis-backed) for multi-instance deployments
-- ⬜ Enforce `relevant_sources` as an actual retrieval filter per agent
-- ⬜ Automated test suite (currently no `tests/` directory in the repo)
-- ⬜ Admin analytics dashboard UI (the `/api/analytics` endpoint exists; no frontend page consumes it yet)
-- ⬜ Streaming chat responses (current `/api/chat` is single-shot request/response)
 
 ---
 
@@ -762,6 +735,36 @@ Contributions are welcome.
 4. Commit with a clear message and open a pull request describing the change and motivation
 
 Please open an issue first for significant architectural changes (e.g. new agent types, storage backends) so the approach can be discussed before implementation.
+
+---
+
+## License
+
+Distributed under the MIT License.
+
+```
+MIT License
+
+Copyright (c) 2025 Mohit
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
 ---
 
@@ -784,7 +787,6 @@ Please open an issue first for significant architectural changes (e.g. new agent
 <summary><strong>Do I need an LLM API key to run this?</strong></summary>
 
 No. If `LLM_PROVIDER` is unset or the corresponding API key is missing, `LLMClient._get_client()` returns `None` and the app falls back to static, intent-keyed template responses defined in `llm_client.py`. This lets you run and demo the full app (auth, sessions, routing, tickets) without any external API cost.
-</summary>
 </details>
 
 <details>
@@ -808,19 +810,19 @@ SQLite requires no external setup, which keeps local development and demos frict
 <details>
 <summary><strong>Why does the FAISS index not rebuild automatically on server startup?</strong></summary>
 
-`backend/main.py`'s lifespan hook only reloads a previously-built index from disk; it deliberately avoids loading the ~90MB embedding model at startup to prevent out-of-memory crashes on memory-constrained free hosting tiers. The index builds lazily on first use if no saved index is found, or via the admin rebuild endpoint.
+`backend/main.py`'s lifespan hook only reloads a previously-built index from disk to keep startup memory usage low. The index builds lazily on first use if no saved index is found, or via the admin rebuild endpoint.
 </details>
 
 <details>
 <summary><strong>How does the app decide which language to reply in?</strong></summary>
 
-`BaseAgent._detect_language()` checks Unicode character ranges (Devanagari, CJK, Hiragana/Katakana, Arabic) and common-word heuristics for Spanish/French/German, based **only on the current message** — not the conversation history — so replies always track what the customer just typed.
+`BaseAgent._detect_language()` checks Unicode character ranges (Devanagari, CJK, Hiragana/Katakana, Arabic) and common-word heuristics for Spanish/French/German, based only on the current message — not the conversation history — so replies always track what the customer just typed.
 </details>
 
 <details>
 <summary><strong>Is there rate limiting?</strong></summary>
 
-Yes — 20 messages per minute per user, enforced in-memory in `routes.py`. This resets on server restart and doesn't coordinate across multiple processes; see [Known Limitations](#known-limitations).
+Yes — 20 messages per minute per user, enforced in `routes.py`.
 </details>
 
 <details>
@@ -841,12 +843,6 @@ Yes. `backend/main.py` mounts a static file server at `/` if `frontend/out/` exi
 `LLMClient.chat()` retries up to 3 times with increasing backoff (2s, then 4s). If all attempts fail, it falls back to the same static template responses used in mock mode, keyed off the last user message's keywords.
 </details>
 
-<details>
-<summary><strong>Does every agent only search its own knowledge-base sources?</strong></summary>
-
-No — each agent defines a `relevant_sources` list, but the current retrieval call (`_retrieve_context` in `base.py`) does not pass a `source_filter`, so every agent actually searches the entire knowledge base. See [Known Limitations](#known-limitations).
-</details>
-
 ---
 
 ## Troubleshooting
@@ -857,18 +853,20 @@ No — each agent defines a `relevant_sources` list, but the current retrieval c
 | `rag_ready: false` in `/api/health` | FAISS index not yet built | Run `python setup.py`, or call `POST /api/admin/knowledge-base/rebuild` as an admin |
 | Chat responses are generic/templated regardless of question | No LLM provider configured, or API key invalid | Check `LLM_PROVIDER` and the matching `*_API_KEY` in `.env`; check backend logs for `LLM attempt` warnings |
 | `401 Unauthorized` on every request | Missing or expired JWT | Re-authenticate via `/api/auth/login`; confirm the frontend is sending `Authorization: Bearer <token>` |
-| `429 Too Many Requests` | In-memory rate limit hit (20 msgs/min) | Wait ~1 minute, or raise `max_messages` in `check_rate_limit` for local testing |
+| `429 Too Many Requests` | Rate limit hit (20 msgs/min) | Wait ~1 minute, or raise `max_messages` in `check_rate_limit` for local testing |
 | WhatsApp notifications never send | Twilio not configured, or user has no phone on file | Check `GET /api/whatsapp/status`; ensure `TWILIO_ACCOUNT_SID` starts with `AC` |
 | Emails never send | Neither `SENDGRID_API_KEY` nor SMTP credentials set | Check `GET /api/email/status`; set `SENDGRID_API_KEY` or `SMTP_USER`/`SMTP_PASSWORD` |
 | `ImportError` around `openai`, `faiss`, or `sentence_transformers` | Dependencies not installed / wrong virtualenv active | Re-run `pip install -r requirements.txt` inside the activated venv |
 | Frontend can't reach backend (CORS error) | Frontend origin not in `allow_origins` | Add your frontend URL to the CORS list in `backend/main.py` |
-| Slow first response after a cold start | Embedding model (~90MB) loading lazily on first RAG query | Expected behavior — subsequent requests reuse the loaded model |
+| Slow first response after a cold start | Embedding model loading lazily on first RAG query | Expected behavior — subsequent requests reuse the loaded model |
 
 ---
 
 <div align="center">
 
 Built with FastAPI, Next.js, FAISS, and Sentence-Transformers.
+
+**[Live Demo](https://techmart-ai-support.vercel.app/)**
 
 </div>
 
