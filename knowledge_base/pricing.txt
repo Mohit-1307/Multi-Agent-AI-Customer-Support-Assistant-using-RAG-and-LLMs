@@ -1,6 +1,6 @@
 TECHMART ELECTRONICS — PRICING & SUBSCRIPTION PLANS
 ====================================================
-Updated: October 2024
+Updated: July 2026
 
 1. PRODUCT PRICING SUMMARY
 ---------------------------
@@ -51,10 +51,20 @@ ACCESSORIES:
 --------------------------------------------------
 TechMart Care is our extended protection and premium support subscription.
 
-TECHMART CARE BASIC
-  Monthly Plan:   $4.99/month
-  Annual Plan:    $49.99/year (save ~$10 vs monthly)
+TECHMART CARE FREE (BASIC)
+  Monthly Plan:   ₹0/month ($0)
   Per Device:     Yes (each device requires separate plan)
+
+  Includes:
+  - 1 year standard hardware warranty
+  - Standard support (48-hour response time)
+  - Email support only
+  - Upgrade anytime from account settings
+
+TECHMART CARE PLUS
+  Monthly Plan:   ₹199/month ($2.09)
+  Annual Plan:    ₹1,999/year
+  Per Device:     Yes
 
   Includes:
   - Extended hardware warranty (1 year → 2 years total)
@@ -63,26 +73,37 @@ TECHMART CARE BASIC
   - Double TechMart Rewards points on all purchases
 
 TECHMART CARE PRO
-  Monthly Plan:   $9.99/month
-  Annual Plan:    $99.99/year (save ~$20 vs monthly)
+  Monthly Plan:   ₹999/month ($10.48)
+  Annual Plan:    ₹9,999/year
   Per Device:     Yes
 
-  Includes everything in Basic, plus:
+  Includes everything in Plus, plus:
   - Extended hardware warranty (1 year → 3 years total)
   - Accidental damage protection (screen cracks, liquid damage)
     → Up to 2 incidents per year
-    → Service fee: $49 (smartphones & accessories) or $79 (laptops & tablets)
+    → Service fee: ₹4,000 (smartphones & accessories) or ₹6,500 (laptops & tablets)
   - 4-hour priority support response guarantee
   - Free express shipping for warranty repairs
   - Free battery replacement if capacity drops below 80% within 3 years
   - Loaner device program during repairs (subject to availability)
 
+TECHMART CARE MAX
+  Monthly Plan:   ₹1,999/month ($20.97)
+  Annual Plan:    ₹19,999/year
+  Per Device:     Yes
+
+  Includes everything in Pro, plus:
+  - Same-day support response
+  - Free annual device checkup
+  - Extended accidental damage cover (up to 4 incidents per year)
+  - Priority express shipping
+
 TECHMART CARE BUSINESS
-  Monthly Plan:   $24.99/month per device
+  Monthly Plan:   ₹2,999/month ($31.46) per device
   Minimum:        3 devices required
   Volume Pricing: Available for 10+ devices (contact business@techmartelectronics.com)
 
-  Includes everything in Pro, plus:
+  Includes everything in Max, plus:
   - Dedicated business account manager
   - 1-hour response SLA during business hours
   - On-site repair for qualifying metro areas
@@ -104,7 +125,7 @@ Financing approval is subject to Affirm's credit check. Available at checkout.
 
 4. BUNDLES & PROMOTIONS
 ------------------------
-TechMart occasionally offers bundle deals. Current bundles (as of October 2024):
+TechMart occasionally offers bundle deals. Current bundles (as of July 2026):
 
   Student Starter Bundle:
     UltraBook Air 13 + True Wireless Earbuds Pro + 65W Charger
@@ -115,7 +136,7 @@ TechMart occasionally offers bundle deals. Current bundles (as of October 2024):
     Bundle Price: $1,249.99 (save $149.99 vs individual)
 
   Smart Home Starter Pack:
-    HomeHub Speaker + 2x Smart Plug + 1-year Care Basic
+    HomeHub Speaker + 2x Smart Plug + 1-year Care Plus
     Bundle Price: $219.99 (save $69.98 vs individual)
 
 5. EDUCATION DISCOUNT
@@ -138,7 +159,7 @@ For purchases of 5+ units, TechMart Business offers:
 7. TECHMART REWARDS POINTS
 ----------------------------
   Earning: 1 point per $1 spent
-  TechMart Care Basic/Pro subscribers: 2 points per $1 spent
+  TechMart Care Plus/Pro/Max subscribers: 2 points per $1 spent
   Redemption: 100 points = $1 discount on next purchase
   Minimum redemption: 500 points ($5)
   Expiry: Points expire 12 months after earning date
@@ -147,6 +168,7 @@ For purchases of 5+ units, TechMart Business offers:
 -------------------
   - All major credit/debit cards (Visa, MC, Amex, Discover)
   - PayPal, Apple Pay, Google Pay
+  - UPI, Net Banking (India)
   - TechMart Gift Cards
   - Affirm financing (see Section 3)
   - Wire transfer for Business orders $5,000+
