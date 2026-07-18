@@ -92,7 +92,11 @@ class Settings:
     # Auth — JWT signing secret and token lifetime
     # ------------------------------------------------------------------
     # NOTE: change SECRET_KEY in production, this default is not secure
-    SECRET_KEY: str = os.getenv("SECRET_KEY", "techmart-super-secret-key-change-in-production-2024")
+    SECRET_KEY = os.getenv("SECRET_KEY")
+
+    if not SECRET_KEY:
+        
+        raise ValueError("SECRET_KEY environment variable is required.")
 
     ALGORITHM: str = "HS256"
 
