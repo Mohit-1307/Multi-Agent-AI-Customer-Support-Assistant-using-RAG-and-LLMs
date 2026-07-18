@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 TechMart AI Support — One-time Setup Script
 Handles: DB creation, admin user, and FAISS index building
@@ -8,10 +7,13 @@ import sys
 import os
 import gc
 
-# Memory optimization — must be FIRST before any imports
+# Memory optimization
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
 os.environ["OMP_NUM_THREADS"] = "1"
+
 os.environ["MKL_NUM_THREADS"] = "1"
+
 os.environ["MALLOC_TRIM_THRESHOLD_"] = "100000"
 
 
@@ -75,15 +77,20 @@ def step3_create_admin():
 
         db = SessionLocal()
 
-        admin = db.query(User).filter(User.email == "admin@techmart.com").first()
+        admin = db.query(User).filter(User.email == "admin@gmail.com").first()
 
         if not admin:
 
             admin = User(
-                name="Admin",
-                email="admin@techmart.com",
+
+                name = "Admin",
+
+                email = "admin@gmail.com",
+
                 password_hash=hash_password("admin123"),
-                is_admin=True,
+
+                is_admin = True
+
             )
 
             db.add(admin)
@@ -92,7 +99,7 @@ def step3_create_admin():
 
             print("✅ Admin user created")
 
-            print("Email: admin@techmart.com")
+            print("Email: admin@gmail.com")
 
             print("Password: admin123")
 
@@ -130,7 +137,7 @@ def step4_build_index():
 
         return
 
-    print(f"   Found {len(txt_files)} knowledge base files\n")
+    print(f"Found {len(txt_files)} knowledge base files\n")
 
     all_chunks = []
 
@@ -175,18 +182,27 @@ def step4_build_index():
                 if len(chunk) > 50:  # skip tiny chunks
 
                     file_chunks.append(
+                        
                         {
+                            
                             "text": chunk,
+                            
                             "source": txt_path.stem,
-                            "chunk_id": len(all_chunks) + len(file_chunks),
+                            
+                            "chunk_id": len(all_chunks) + len(file_chunks)
+                            
                         }
+                        
                     )
 
             all_chunks.extend(file_chunks)
 
             file_stats[txt_path.stem] = {
+
                 "chunks": len(file_chunks),
-                "file_size_bytes": txt_path.stat().st_size,
+
+                "file_size_bytes": txt_path.stat().st_size
+
             }
 
             print(f"✅ {txt_path.name:<35} {len(file_chunks)} chunks")
@@ -254,11 +270,17 @@ def step4_build_index():
         try:
 
             emb = model.encode(
+
                 batch,
-                batch_size=2,
-                normalize_embeddings=True,
-                convert_to_numpy=True,
-                show_progress_bar=False,
+
+                batch_size = 2,
+
+                normalize_embeddings = True,
+
+                convert_to_numpy = True,
+
+                show_progress_bar = False
+
             )
 
             embeddings_list.append(emb.astype(np.float32))
@@ -373,9 +395,13 @@ def step4_build_index():
         for filename, stats in file_stats.items():
 
             doc = KnowledgeBaseDoc(
-                filename=filename,
-                chunk_count=stats["chunks"],
-                file_size_bytes=stats["file_size_bytes"],
+                
+                filename = filename,
+
+                chunk_count = stats["chunks"],
+
+                file_size_bytes = stats["file_size_bytes"]
+                
             )
 
             db.add(doc)
@@ -421,7 +447,7 @@ def main():
 
     print("3. Open browser → http://localhost:3000")
 
-    print("4. Login → admin@techmart.com / admin123")
+    print("4. Login → admin@gmail.com / admin123")
 
     print("5. API docs → http://localhost:8000/docs")
 

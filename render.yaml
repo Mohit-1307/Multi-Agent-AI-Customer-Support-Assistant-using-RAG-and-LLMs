@@ -34,8 +34,8 @@ services:
       - key: EMBEDDING_MODEL
         value: all-MiniLM-L6-v2
       - key: TOP_K_RESULTS
-        value: 2
+        value: 1
       - key: MAX_TOKENS
-        value: 250
+        value: 150
       - key: TEMPERATURE
         value: 0.4
