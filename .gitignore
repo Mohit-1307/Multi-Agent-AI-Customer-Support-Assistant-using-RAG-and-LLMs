@@ -39,5 +39,5 @@ logs/
 .env.local
 .env.production
 
-# pkl
-*.pkl
+# vectorstore
+backend/vectorstore/
