@@ -71,9 +71,7 @@ def split_text(text: str, chunk_size: int = 600, chunk_overlap: int = 80) -> Lis
 
     while start < text_len:
 
-        raw_end = min(start + chunk_size, text_len)
-
-        end = raw_end
+        end = min(start + chunk_size, text_len)
 
         # If this isn't the final chunk, try to break on a sentence boundary
         if end < text_len:
@@ -91,29 +89,9 @@ def split_text(text: str, chunk_size: int = 600, chunk_overlap: int = 80) -> Lis
 
             chunks.append(chunk)
 
-        # We've just emitted the final chunk (it reached the end of the text) —
-        # stop here. Without this check, once raw_end saturates at text_len it
-        # stays constant on every further iteration, so next_start below would
-        # also stay constant; if that constant value isn't > start the loop
-        # falls back to advancing by 1 character at a time, endlessly re-slicing
-        # the same trailing region into a long tail of shrinking junk chunks
-        # until start finally crawls past text_len.
-        if raw_end >= text_len:
-
-            break
-
-        # Move start forward by (chunk_size - chunk_overlap), measured from the
-        # *unsnapped* boundary (raw_end), not from the sentence-adjusted `end`.
-        # Using `end` here caused an infinite loop: when the sentence-boundary
-        # search above pulled `end` far backward — common in short-line/
-        # heading-heavy text where '. ' occurs frequently — subtracting
-        # chunk_overlap from that already-small `end` could produce a `start`
-        # that didn't advance (or even went backward), stalling the loop and
-        # appending chunks forever until memory ran out. Anchoring the step to
-        # raw_end guarantees `start` always advances by a fixed, positive amount.
-        next_start = raw_end - chunk_overlap
-
-        start = next_start if next_start > start else start + 1
+        # Move the start position back by chunk_overlap so consecutive
+        # chunks share some text — this helps preserve context across the split
+        start = end - chunk_overlap
 
     return chunks
 
