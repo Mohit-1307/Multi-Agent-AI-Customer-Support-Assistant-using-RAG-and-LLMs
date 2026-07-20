@@ -130,7 +130,6 @@ class FAISSRetriever:
         dim = embeddings.shape[1]
 
         # Flat L2 index — exact nearest-neighbor search using Euclidean distance
-        # (fine for this knowledge base size; a larger corpus might use an approximate index instead)
         self.index = faiss.IndexFlatL2(dim)
 
         self.index.add(embeddings)
@@ -156,11 +155,13 @@ class FAISSRetriever:
 
         }
 
-    def retrieve(self, query: str, top_k: int = None, source_filter: Optional[str] = None) -> List[RetrievalResult]:
+    def retrieve(self, query: str, top_k: int = None, source_filter: Optional[List[str]] = None) -> List[RetrievalResult]:
         
         """
         Semantic search: return the top-k most relevant chunks for a query.
-        Optionally filter results down to a single source document.
+        Optionally filter results down to one or more source documents
+        (e.g. an agent's relevant_sources list). Pass a single-item list
+        to filter to one source, or None/[] to search the whole knowledge base.
         """
 
         if not self._ready or self.index is None:
@@ -208,8 +209,8 @@ class FAISSRetriever:
 
                 chunk_id = chunk.chunk_id
 
-            # Skip this result if it doesn't match the requested source filter
-            if source_filter and chunk_source != source_filter:
+            # Skip this result if it doesn't match any of the requested source(s)
+            if source_filter and chunk_source not in source_filter:
 
                 continue
 
@@ -272,7 +273,6 @@ class FAISSRetriever:
     # ------------------------------------------------------------------
     # Private helpers — saving/loading the index to/from disk
     # ------------------------------------------------------------------
-
     def _save_to_disk(self):
         
         "Persist the FAISS index and chunk metadata to disk."

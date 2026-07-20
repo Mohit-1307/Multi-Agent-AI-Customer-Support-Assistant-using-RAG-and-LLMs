@@ -43,10 +43,6 @@ class BillingAgent(BaseAgent):
 
     def build_system_prompt(self, extra: str = "") -> str:
 
-        # NOTE (preserved as-is, not fixed): this builds billing_rules but
-        # never returns it, so this method implicitly returns None instead
-        # of the assembled prompt — unlike the sibling agents below, which
-        # all correctly `return super().build_system_prompt(extra=...)`.
         billing_rules = (
 
             "\nBILLING RULES:\n"

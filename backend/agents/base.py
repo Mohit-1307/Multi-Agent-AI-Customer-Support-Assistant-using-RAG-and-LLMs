@@ -38,30 +38,6 @@ class BaseAgent:
 
     relevant_sources: List[str] = []  # empty list = search all knowledge base sources
 
-    # ----------------------------------------------------------------------------------
-    # Reusable system prompt template (currently unused directly, kept as reference —
-    # build_system_prompt() below builds the real prompt string)
-    # ----------------------------------------------------------------------------------
-    SYSTEM_TEMPLATE = """
-                            You are {name}, a specialized AI customer support agent for {company}.
-                            Your role: {role_description}
-
-                            GUIDELINES:
-                            - Be empathetic, professional, and solution-oriented.
-                            - Always base your answers on the provided CONTEXT from our knowledge base.
-                            - If the CONTEXT does not contain enough information, say so clearly and offer to escalate.
-                            - Do not invent policies, prices, or product details not mentioned in the CONTEXT.
-                            - Keep responses concise (3–5 sentences unless the topic requires more detail).
-                            - When referencing specific policies or prices, mention the source (e.g., "per our Refund Policy").
-                            - If you cannot resolve the issue, offer: email support@techmartelectronics.com or call 1-800-TECHMART.
-                            - End with a friendly close and ask if there's anything else you can help with.
-                            
-                            Company: {company}
-                            Support Phone: 1-800-TECHMART (1-800-832-4627)
-                            Support Email: support@techmartelectronics.com
-                            Business Hours: Mon–Fri 8 AM–9 PM EST; Sat–Sun 9 AM–6 PM EST
-                            """
-
     def __init__(self):
 
         # Shared singleton retriever — gives access to the FAISS knowledge base search
@@ -111,35 +87,31 @@ class BaseAgent:
 
             "7. This rule overrides everything else.\n\n"
 
-            """
-            GUIDELINES:\n"
+            "GUIDELINES:\n"
 
-            - Be empathetic, professional, and solution-oriented.\n
+            "- Be empathetic, professional, and solution-oriented.\n"
 
-            - Always base your answers on the provided CONTEXT from our knowledge base.\n
+            "- Always base your answers on the provided CONTEXT from our knowledge base.\n"
 
-            - If the CONTEXT does not contain enough information, say so clearly and offer to escalate.\n
+            "- If the CONTEXT does not contain enough information, say so clearly and offer to escalate.\n"
 
-            - Do not invent policies, prices, or product details not mentioned in the CONTEXT.\n
+            "- Do not invent policies, prices, or product details not mentioned in the CONTEXT.\n"
 
-            - Keep responses concise (3-5 sentences unless the topic requires more detail).\n
+            "- Keep responses concise (3-5 sentences unless the topic requires more detail).\n"
 
-            - When referencing specific policies or prices, mention the source.\n
+            "- When referencing specific policies or prices, mention the source.\n"
 
-            - If you cannot resolve the issue, offer: email support@techmartelectronics.com or call 1-800-TECHMART.\n
+            "- If you cannot resolve the issue, offer: email support@techmartelectronics.com or call 1-800-TECHMART.\n"
 
-            - End with a friendly close and ask if there is anything else you can help with.\n\n
-            """
+            "- End with a friendly close and ask if there is anything else you can help with.\n\n"
 
             f"Company: {COMPANY}\n"
 
-            """
-            Support Phone: 1-800-TECHMART (1-800-832-4627)\n
+            "Support Phone: 1-800-TECHMART (1-800-832-4627)\n"
 
-            Support Email: support@techmartelectronics.com\n
+            "Support Email: support@techmartelectronics.com\n"
 
-            "Business Hours: Mon-Fri 8 AM-9 PM EST; Sat-Sun 9 AM-6 PM EST\n
-            """
+            "Business Hours: Mon-Fri 8 AM-9 PM EST; Sat-Sun 9 AM-6 PM EST\n"
 
         )
 

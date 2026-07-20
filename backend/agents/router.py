@@ -15,6 +15,7 @@ from typing import Dict, List, Optional, Tuple
 from ..config import settings
 from .agents import BillingAgent, ComplaintAgent, FAQAgent, ProductAgent, TechnicalAgent
 from .base import BaseAgent
+from .language import detect_language
 from .llm_client import get_llm_client
 
 logger = logging.getLogger(__name__)
@@ -22,7 +23,6 @@ logger = logging.getLogger(__name__)
 # ------------------------------------------------------------------
 # Intent & Sentiment keyword definitions
 # ------------------------------------------------------------------
-
 # Each intent maps to a list of keywords/phrases that suggest that intent.
 # Used by the fast keyword-based classifier before falling back to the LLM.
 INTENTS = {
@@ -706,15 +706,9 @@ class AgentRouter:
         # Stage 1 — keyword baseline (always fast, no network call)
         keyword_result = self._keyword_detect(message)
 
-        # NOTE (preserved as-is): leftover debug print statement.
-        print(f"DEBUG SENTIMENT PIPELINE | msg={message!r} | keyword_result={keyword_result}")
-
         # Skip the LLM call entirely if keyword confidence is already high.
         # This saves 1-2 seconds per request when the message is unambiguous.
         if keyword_result.get("confidence", 0) >= 0.7:
-
-            # NOTE (preserved as-is): leftover debug print statement.
-            print(f"DEBUG SENTIMENT PIPELINE | using KEYWORD result (confidence >= 0.7)")
 
             logger.info("High confidence keyword detection — skipping LLM classification")
 
@@ -880,28 +874,10 @@ class AgentRouter:
 
             history_summary = "\n".join(f"{m['role'].upper()}: {m['content'][:120]}" for m in recent)
 
-        # Detect the language of the message using simple keyword/character checks
-        from langdetect import detect
-
-        detected_lang = "English"
-
-        msg_lower = message.lower()
-
-        if any(c in msg_lower for c in ["क", "ख", "ग", "घ", "आ", "इ", "ई", "उ", "ए", "ओ"]):
-
-            detected_lang = "Hindi"
-
-        elif any(word in msg_lower for word in ["hola", "como", "gracias", "problema", "ayuda"]):
-
-            detected_lang = "Spanish"
-
-        elif any(word in msg_lower for word in ["bonjour", "merci", "problème", "aide", "comment"]):
-
-            detected_lang = "French"
-
-        elif any(word in msg_lower for word in ["danke", "bitte", "hilfe", "problem", "hallo"]):
-
-            detected_lang = "German"
+        # Detect the language of the message, using the same shared heuristic
+        # the base agent uses (agents/language.py), so intent classification
+        # and the eventual reply are never working off two different guesses.
+        detected_lang = detect_language(message)
 
         # Prompt asks the LLM to return a strict JSON object we can parse directly.
         # Sentiment guidance is intentionally detailed here — the model tends to
@@ -1075,11 +1051,6 @@ class AgentRouter:
         }
 
         normalized_agents = [a for a in normalized_agents if a in valid_agents] or [intent]
-
-        # NOTE (preserved as-is): leftover debug print statements.
-        print(f"DEBUG SENTIMENT PIPELINE | LLM raw response: {raw!r}")
-
-        print(f"DEBUG SENTIMENT PIPELINE | LLM parsed sentiment: {sentiment!r}")
 
         return {
 

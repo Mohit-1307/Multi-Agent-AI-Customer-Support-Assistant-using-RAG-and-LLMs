@@ -89,9 +89,18 @@ def split_text(text: str, chunk_size: int = 600, chunk_overlap: int = 80) -> Lis
 
             chunks.append(chunk)
 
+        if end >= text_len:
+
+            break
+
         # Move the start position back by chunk_overlap so consecutive
         # chunks share some text — this helps preserve context across the split
-        start = end - chunk_overlap
+        new_start = end - chunk_overlap
+
+        # Safety net: chunk_overlap >= chunk_size (or a very short sentence-
+        # boundary match) could otherwise make new_start <= start, which would
+        # also loop forever. Guarantee forward progress on every iteration.
+        start = new_start if new_start > start else start + 1
 
     return chunks
 
@@ -158,8 +167,6 @@ def load_knowledge_base(kb_dir: Path, chunk_size: int = 600, chunk_overlap: int 
 
             import traceback
 
-            # Don't let one bad file stop the whole knowledge base from loading —
-            # log the error and move on to the next file
             logger.error(f"Failed to load {txt_path}: {e}")
 
             logger.error(traceback.format_exc())

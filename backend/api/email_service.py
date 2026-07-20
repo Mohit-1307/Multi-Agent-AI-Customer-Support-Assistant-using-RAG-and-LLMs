@@ -56,15 +56,11 @@ def send_email(to_email: str, subject: str, body: str) -> bool:
 
         with urllib.request.urlopen(req, timeout = 10) as resp:
 
-            print(f"DEBUG SENDGRID | status = {resp.status} to = {to_email}")
-
             logger.info(f"Email sent via SendGrid to {to_email}")
 
             return True
 
     except Exception as e:
-
-        print(f"DEBUG SENDGRID FAILED | {e}")
 
         logger.error(f"Email send failed: {e}")
 

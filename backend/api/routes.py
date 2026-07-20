@@ -402,10 +402,6 @@ async def chat(payload: ChatRequest,current_user: User = Depends(get_current_use
     # and notify the customer by email/WhatsApp about the new ticket
 
     if result.get("intent") == "complaint" or result.get("sentiment") in ["frustrated", "negative"]:
-        
-        print(f"DEBUG TICKET | intent={result.get('intent')} sentiment={result.get('sentiment')}")
-        
-        print(f"DEBUG TICKET | phone={current_user.phone} whatsapp_configured={is_whatsapp_configured()}")
 
         import random
 
@@ -865,10 +861,6 @@ async def get_analytics(days: int = 30, current_user: User = Depends(get_current
             Message.sentiment == sent
 
         ).count()
-
-        # NOTE (preserved as-is): leftover debug print statement, left
-        # unchanged since removing it would be a behavior/output change.
-        print(f"DEBUG SENTIMENT: {sent} = {cnt}")
 
         if cnt > 0:
 

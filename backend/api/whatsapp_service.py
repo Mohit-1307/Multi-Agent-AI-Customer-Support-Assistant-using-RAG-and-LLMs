@@ -51,8 +51,6 @@ def send_whatsapp(to_number: str, message: str) -> bool:
             
             to_whatsapp = to_number
 
-        print(f"DEBUG WHATSAPP | sending to={to_whatsapp} from={settings.TWILIO_WHATSAPP_FROM}")  
-
         msg = client.messages.create(
             
             from_ = settings.TWILIO_WHATSAPP_FROM,
@@ -63,15 +61,11 @@ def send_whatsapp(to_number: str, message: str) -> bool:
             
         )
 
-        print(f"DEBUG WHATSAPP | SUCCESS SID={msg.sid}") 
-        
         logger.info(f"WhatsApp sent to {to_number}: SID={msg.sid}")
         
         return True
 
     except Exception as e:
-        
-        print(f"DEBUG WHATSAPP | FAILED: {e}")  
         
         logger.error(f"WhatsApp send failed: {e}")
         

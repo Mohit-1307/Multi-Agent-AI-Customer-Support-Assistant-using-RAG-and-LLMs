@@ -344,7 +344,7 @@ def step4_build_index():
 
         dim = embeddings.shape[1]
 
-        index = faiss.IndexFlatIP(dim)
+        index = faiss.IndexFlatL2(dim)
 
         index.add(embeddings)
 
