@@ -27,22 +27,29 @@ function highlightMatch(text, query) {
       {text.slice(0, idx)}
 
       <mark
+
         style = {{
+
           background: "var(--tm-accent-stroke)",
 
           color: "white",
 
           borderRadius: "2px",
 
-          padding: "0 2px",
+          padding: "0 2px"
+
         }}
       >
         {text.slice(idx, idx + query.length)}
+
       </mark>
 
       {text.slice(idx + query.length)}
+
     </>
+
   );
+  
 }
 
 // Some fixed values we reuse throughout this file, like the labels
@@ -2408,295 +2415,7 @@ function Sidebar({
               )}
             </div>
 
-            {/* Upgrade Plan — expandable */}
-            <div>
-              <button
-                onClick = {() => toggleSection("upgrade")}
-                style = {{
-                  width: "100%",
-
-                  display: "flex",
-
-                  alignItems: "center",
-
-                  gap: 10,
-
-                  padding: "10px 14px",
-
-                  background: expandedSection === "upgrade" ? "rgba(59,130,246,0.08)" : "none",
-
-                  border: "none",
-
-                  color: expandedSection === "upgrade" ? "var(--tm-accent-stroke)" : "var(--tm-text-slate-dim)",
-
-                  fontSize: 13,
-
-                  cursor: "pointer",
-
-                  textAlign: "left",
-
-                  borderBottom: "1px solid rgba(0,0,0,0.05)",
-
-                  transition: "all 0.15s",
-                }}
-                onMouseEnter = {(e) => {
-                  e.currentTarget.style.background = "rgba(0,0,0,0.04)";
-
-                  e.currentTarget.style.color = "var(--tm-text-strong)";
-                }}
-                onMouseLeave = {(e) => {
-                  e.currentTarget.style.background = expandedSection === "upgrade" ? "rgba(59,130,246,0.08)" : "none";
-
-                  e.currentTarget.style.color = expandedSection === "upgrade" ? "var(--tm-accent-stroke)" : "var(--tm-text-slate-dim)";
-                }}
-              >
-                <svg
-                  width = "13"
-                  height = "13"
-                  viewBox = "0 0 24 24"
-                  fill = "none"
-                  stroke = "currentColor"
-                  strokeWidth = "2"
-                  strokeLinecap = "round"
-                  strokeLinejoin = "round"
-                >
-                  <polyline points = "23 6 13.5 15.5 8.5 10.5 1 18" />
-
-                  <polyline points = "17 6 23 6 23 12" />
-                </svg>
-
-                <span style = {{ flex: 1 }}>Upgrade Plan</span>
-
-                <svg
-                  width = "10"
-                  height = "10"
-                  viewBox = "0 0 24 24"
-                  fill = "none"
-                  stroke = "currentColor"
-                  strokeWidth = "2.5"
-                  strokeLinecap = "round"
-                  strokeLinejoin = "round"
-                  style = {{
-                    transform: expandedSection === "upgrade" ? "rotate(180deg)" : "rotate(0deg)",
-
-                    transition: "transform 0.2s",
-                  }}
-                >
-                  <polyline points = "6 9 12 15 18 9" />
-                </svg>
-              </button>
-
-              {expandedSection === "upgrade" && (
-                <div
-                  style = {{
-                    background: "rgba(0,0,0,0.02)",
-
-                    borderBottom: "1px solid rgba(0,0,0,0.05)",
-                  }}
-                >
-                  {[
-                    {
-                      label: "Free (Basic) — ₹0 ($0)",
-
-                      icon: (
-                        <svg
-                          width = "14"
-                          height = "14"
-                          viewBox = "0 0 24 24"
-                          fill = "none"
-                          stroke = "currentColor"
-                          strokeWidth = "2"
-                          strokeLinecap = "round"
-                          strokeLinejoin = "round"
-                        >
-                          <rect x = "3" y = "8" width = "18" height = "13" rx = "1" />
-
-                          <path d = "M12 8v13" />
-
-                          <path d = "M3 12h18" />
-
-                          <path d = "M12 8c-1.5-3-3.5-4-5-3-1 .7-.8 2.5 1 3" />
-
-                          <path d = "M12 8c1.5-3 3.5-4 5-3 1 .7.8 2.5-1 3" />
-                        </svg>
-                      ),
-
-                      action: () =>
-                        alert(
-                          "TechMart Care Free\n₹0/month · $0/month\n\n✅ 1 year warranty\n✅ Standard support (48hr)\n✅ Email support only\n\nUpgrade anytime from this menu."
-                        ),
-                    },
-
-                    {
-                      label: "Plus — ₹199/month ($2.09)",
-
-                      icon: (
-                        <svg
-                          width = "14"
-                          height = "14"
-                          viewBox = "0 0 24 24"
-                          fill = "none"
-                          stroke = "currentColor"
-                          strokeWidth = "2"
-                          strokeLinecap = "round"
-                          strokeLinejoin = "round"
-                        >
-                          <polygon points = "12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                        </svg>
-                      ),
-
-                      action: () =>
-                        alert(
-                          "TechMart Care Plus\n₹199/month · $2.09/month\n\n✅ 2 year warranty\n✅ Priority support (24hr)\n✅ Free standard repair shipping\n✅ Double Rewards points\n\nContact: billing@techmartelectronics.com"
-                        ),
-                    },
-
-                    {
-                      label: "Pro — ₹999/month ($10.48)",
-
-                      icon: (
-                        <svg
-                          width = "14"
-                          height = "14"
-                          viewBox = "0 0 24 24"
-                          fill = "none"
-                          stroke = "currentColor"
-                          strokeWidth = "2"
-                          strokeLinecap = "round"
-                          strokeLinejoin = "round"
-                        >
-                          <path d = "M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-
-                          <path d = "M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-
-                          <path d = "M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-
-                          <path d = "M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-                        </svg>
-                      ),
-
-                      action: () =>
-                        alert(
-                          "TechMart Care Pro\n₹999/month · $10.48/month\n\n✅ 3 year warranty\n✅ Accidental damage cover (2x/year)\n✅ 4-hour support response\n✅ Free express repair shipping\n✅ Free battery replacement\n\nContact: billing@techmartelectronics.com"
-                        ),
-                    },
-
-                    {
-                      label: "Max — ₹1999/month ($20.97)",
-
-                      icon: (
-                        <svg
-                          width = "14"
-                          height = "14"
-                          viewBox = "0 0 24 24"
-                          fill = "none"
-                          stroke = "currentColor"
-                          strokeWidth = "2"
-                          strokeLinecap = "round"
-                          strokeLinejoin = "round"
-                        >
-                          <path d = "M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.3 7.2 16.9l.9-5.4L4.2 7.7l5.4-.8L12 2z" />
-
-                          <path d = "M6 20h12" />
-                        </svg>
-                      ),
-
-                      action: () =>
-                        alert(
-                          "TechMart Care Max\n₹1999/month · $20.97/month\n\n✅ All Pro features\n✅ Same-day support response\n✅ Free annual device checkup\n✅ Extended accidental damage cover (4x/year)\n✅ Priority express shipping\n\nContact: billing@techmartelectronics.com"
-                        ),
-                    },
-
-                    {
-                      label: "Business — ₹2999/month ($31.46)",
-
-                      icon: (
-                        <svg
-                          width = "14"
-                          height = "14"
-                          viewBox = "0 0 24 24"
-                          fill = "none"
-                          stroke = "currentColor"
-                          strokeWidth = "2"
-                          strokeLinecap = "round"
-                          strokeLinejoin = "round"
-                        >
-                          <rect x = "4" y = "8" width = "16" height = "13" rx = "1" />
-
-                          <path d = "M9 21V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v13" />
-
-                          <path d = "M9 3h6l1 4H8l1-4z" />
-                        </svg>
-                      ),
-
-                      action: () =>
-                        alert(
-                          "TechMart Care Business\n₹2999/month · $31.46/month\n\n✅ All Max features\n✅ Dedicated account manager\n✅ 1-hour SLA\n✅ On-site repair (select cities)\n✅ Priority replacement\n\nContact: business@techmartelectronics.com"
-                        ),
-                    },
-
-                    {
-                      label: "Contact Sales",
-
-                      icon: (
-                        <svg
-                          width = "14"
-                          height = "14"
-                          viewBox = "0 0 24 24"
-                          fill = "none"
-                          stroke = "currentColor"
-                          strokeWidth = "2"
-                          strokeLinecap = "round"
-                          strokeLinejoin = "round"
-                        >
-                          <path d = "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z" />
-                        </svg>
-                      ),
-
-                      action: () => window.open("mailto:sales@techmartelectronics.com?subject=Plan Upgrade Inquiry"),
-                    },
-                  ].map((plan) => (
-                    <button
-                      key = {plan.label}
-                      onClick = {() => {
-                        plan.action();
-                      }}
-                      style = {{
-                        width: "100%",
-
-                        display: "flex",
-
-                        alignItems: "center",
-
-                        gap: 8,
-
-                        padding: "8px 14px 8px 36px",
-
-                        background: "none",
-
-                        border: "none",
-
-                        color: "var(--tm-text-muted)",
-
-                        fontSize: 12,
-
-                        cursor: "pointer",
-
-                        textAlign: "left",
-
-                        transition: "color 0.15s",
-                      }}
-                      onMouseEnter = {(e) => (e.currentTarget.style.color = "var(--tm-text-strong)")}
-                      onMouseLeave = {(e) => (e.currentTarget.style.color = "var(--tm-text-muted)")}
-                    >
-                      {plan.icon}
-
-                      {plan.label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            
 
             {/* Log out */}
             <button
