@@ -2415,8 +2415,6 @@ function Sidebar({
               )}
             </div>
 
-            
-
             {/* Log out */}
             <button
               onClick = {() => authAPI.logout()}
